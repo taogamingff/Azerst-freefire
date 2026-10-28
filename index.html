@@ -1,56 +1,1329 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>TAB SỰ KIỆN | Trang chủ</title>
-<style>
-@font-face{font-family:GFF;src:url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
-*{box-sizing:border-box;margin:0;padding:0}html,body{width:100%;min-height:100%;font-family:GFF,system-ui,sans-serif;color:#fff}body{min-height:100vh;background:#080d19;overflow-x:hidden;padding:clamp(8px,2vw,24px);display:flex;align-items:center;justify-content:center}body:before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(135deg,#050914bb,#070b18e8),url("https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/img/20228/b2b0012af7e3bfcdc90cd8744065e8ab.jpg") center/cover}
-.container{position:relative;width:min(100%,1500px);min-height:min(88vh,900px);display:flex;flex-direction:column;gap:clamp(12px,2.5vmin,28px);padding:clamp(18px,3vw,44px);border:1px solid #ffffff25;border-radius:26px;background:#0a1024a6;backdrop-filter:blur(16px);box-shadow:0 25px 60px #0009;overflow:hidden}
-.menu{position:absolute;left:18px;top:18px;z-index:10}.menu button{padding:9px 12px;background:#ffffff18;color:#fff;border:1px solid #ffffff44;border-radius:8px;cursor:pointer;font:inherit}.menu-panel{display:none;position:absolute;top:44px;left:0;min-width:120px;padding:8px;background:#111a2eee;border:1px solid #ffffff33;border-radius:10px}.menu.open .menu-panel{display:grid;gap:6px}.menu-panel button{width:100%;text-align:left}.header{padding:28px 12px 0;text-align:center}.logo{max-width:min(65%,440px);height:clamp(50px,10vh,125px);object-fit:contain;filter:drop-shadow(0 8px 15px #0009)}.headline{text-align:center;font-size:clamp(18px,3.3vw,36px);letter-spacing:clamp(1px,.6vw,5px);color:#ffe18b;text-shadow:0 3px 16px #f90a;overflow-wrap:anywhere}.description{color:#d9e4f5;text-align:center;font-size:clamp(12px,1.5vw,16px);line-height:1.6}
-.event-nav{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px;margin-top:8px}.event-btn{font:inherit;font-size:clamp(12px,1.5vw,17px);letter-spacing:1px;color:#fff;padding:12px 24px;border:1px solid #ffffff66;background:linear-gradient(135deg,#ffffff35,#ffffff0b);clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);cursor:pointer;transition:.2s}.event-btn.active{background:linear-gradient(120deg,#bd1111,#ff4242,#8c0000);box-shadow:0 0 18px #f4433666}.event-btn:hover{transform:translateY(-2px)}
-.page-switch{display:flex;justify-content:center;gap:8px}.page-switch button{font:inherit;font-size:12px;letter-spacing:2px;padding:9px 16px;border:1px solid #ffffff30;border-radius:8px;background:#ffffff0d;color:#fff;cursor:pointer}.page-switch button.active{background:#ffd166;color:#1b1404}
-.glass{position:relative;border:1px solid #ffd16655;background:linear-gradient(135deg,#ffffff1a,#ffffff05);box-shadow:0 15px 36px #0006,inset 0 0 25px #ffffff08;padding:clamp(12px,2vw,24px);min-height:150px}
-.asset-stage{display:flex;flex:1;min-height:200px;align-items:center;justify-content:center;border-radius:16px;background:#080d19;overflow:hidden;background-size:cover;background-position:center;position:relative}.asset-stage:before{content:"";position:absolute;inset:0;background:#03081777}.asset-stage img{position:relative;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 8px 20px #0009)}
-#page-assets{display:flex;flex-direction:column;gap:14px;flex:1;min-height:0}.tab-wrap{text-align:center}.tab-img{max-width:100%;max-height:130px;object-fit:contain;filter:drop-shadow(0 7px 15px #0008)}.label{font-size:clamp(11px,1.4vw,16px);letter-spacing:3px;color:#ffe28a;margin-bottom:10px;text-align:center}
-#page-banner{display:none;flex:1;min-height:0;overflow:auto}.banner-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.banner-card{position:relative;padding:12px;border:1px solid #ffd16655;background:#ffffff0b;min-width:0}.banner-card img{width:100%;height:auto;max-height:360px;object-fit:contain;background:#0003}.banner-card button{margin-top:8px;background:#171d2a;color:#ffe28a;border:1px solid #ffd16677;border-radius:7px;padding:8px 12px;cursor:pointer;font:inherit}.banner-card.portrait{max-width:420px;justify-self:center}.lightbox{position:fixed;inset:0;z-index:50;background:#000e;display:none;align-items:center;justify-content:center;padding:30px}.lightbox.open{display:flex}.lightbox img{max-width:95vw;max-height:88vh;object-fit:contain}.lightbox button{position:absolute;right:16px;top:16px;padding:10px 14px;background:#211a10;color:#ffe28a;border:1px solid #ffd166;border-radius:8px;font:inherit;cursor:pointer}.footer{text-align:center;color:#ffffff70;font-size:11px;letter-spacing:2px;margin-top:auto}.status{font:12px system-ui,sans-serif;text-align:center;color:#b8c5d9;min-height:16px}
-@media(max-width:650px){.container{padding:15px;min-height:90vh;border-radius:16px}.header{padding-top:35px}.event-btn{padding:10px 15px}.banner-grid{grid-template-columns:1fr}.asset-stage{min-height:180px}.logo{max-width:75%}.headline{letter-spacing:1px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>TAB SỰ KIỆN | Trang chủ</title>
+  <style>
+    @font-face {
+      font-family: "GFF-Latin-Bold";
+      src: url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2"),
+           url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff") format("woff");
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+html, body { width: 100%; min-height: 100%; }
+
+body {
+  --pt: max(clamp(6px, 1.5vmin, 24px), env(safe-area-inset-top));
+  --pb: max(clamp(6px, 1.5vmin, 24px), env(safe-area-inset-bottom));
+  --pl: max(clamp(6px, 1.5vmin, 24px), env(safe-area-inset-left));
+  --pr: max(clamp(6px, 1.5vmin, 24px), env(safe-area-inset-right));
+  font-family: "GFF-Latin-Bold", system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background-color: #0a0f1e;
+  color: #fff;
+  min-height: 100vh; min-height: 100dvh;
+  display: flex;
+  padding: var(--pt) var(--pr) var(--pb) var(--pl);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(10, 20, 40, 0.45) 0%, rgba(0, 0, 0, 0.75) 100%),
+    url('https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/img/20228/b2b0012af7e3bfcdc90cd8744065e8ab.jpg');
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  z-index: -1; pointer-events: none;
+}
+
+.page-wrapper {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  width: min(100%, calc((100dvh - var(--pt) - var(--pb)) * 16 / 9), 1600px);
+  aspect-ratio: 16 / 9;
+  background: rgba(10, 15, 30, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: clamp(16px, 2.5vmin, 48px);
+  padding: clamp(14px, 2.5vmin, 40px) clamp(16px, 3vmin, 60px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: space-between;
+  gap: clamp(10px, 2vmin, 28px); 
+  animation: fadeUp 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
+  overflow: hidden;
+}
+  
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 16/10) {
+  .container { width: min(100%, calc((100dvh - var(--pt) - var(--pb)) * 4 / 3), 1400px); aspect-ratio: 4 / 3; }
+}
+@media (max-height: 560px) and (orientation: landscape) {
+  .container { aspect-ratio: auto; width: min(100%, 1600px); height: calc(100dvh - var(--pt) - var(--pb)); max-height: none; }
+}
+@media (max-aspect-ratio: 1/1) {
+  .container { aspect-ratio: auto; width: min(100%, 720px); height: auto; max-height: none; }
+}
+@media (min-width: 700px) and (max-aspect-ratio: 1/1) {
+  .container { width: min(100%, 960px); }
+}
+@media (min-width: 2000px) and (min-aspect-ratio: 16/10) {
+  .container { max-width: 1800px; }
+}
+
+/* ========== WRAPPER ========== */
+.block-wrap {
+  position: relative; width: 100%;
+  display: flex; flex-direction: column;
+  padding-top: clamp(22px, 3.2vmin, 48px);
+}
+.header-wrap, .tab-wrap { flex-shrink: 0; }
+.block-wrap.header-wrap { padding-top: clamp(44px, 6vmin, 88px); }
+.content-wrap { flex: 1; min-height: 0; }
+.content-wrap > .content { flex: 1; min-height: 0; }
+
+/* ========== LABEL CHUNG ========== */
+.block-label {
+  position: absolute; top: 0; left: 0;
+  text-align: left; padding-left: clamp(6px, 1vmin, 18px);
+  z-index: 5;
+  font-family: "GFF-Latin-Bold", sans-serif;
+  font-size: clamp(0.72rem, 2.2vmin, 1.85rem);
+  letter-spacing: clamp(1.5px, 0.85vmin, 8px);
+  text-transform: uppercase; line-height: 1; white-space: nowrap;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe28a 40%, #ffb347 80%, #ffd966 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 4px 14px rgba(255, 180, 0, 0.55)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.block-label--center {
+  left: 0; right: 0;
+  text-align: center;
+  padding-left: 0;
+}
+
+.block-labels {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 0 clamp(6px, 1vmin, 18px);
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: clamp(3px, 0.6vmin, 8px);
+  z-index: 5;
+  pointer-events: none;
+  text-align: left;
+}
+.block-labels .block-label {
+  position: relative; top: auto; left: auto; padding-left: 0;
+  pointer-events: none;
+}
+
+.block-label--tag {
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  font-size: clamp(0.85rem, 2.4vmin, 1.65rem);
+  letter-spacing: clamp(1.2px, 0.9vmin, 6px);
+  background: linear-gradient(115deg, #ffffff 0%, #ffd6d6 8%, #ff3a3a 18%, #ff8a8a 26%, #ffffff 34%, #b00000 44%, #ff2e2e 52%, #ffffff 60%, #ff5252 68%, #a00000 76%, #ffd6d6 86%, #ffffff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 3px 14px rgba(255, 40, 40, 0.75)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.35)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
+  animation: tagShift 6s ease-in-out infinite alternate;
+}
+@keyframes tagShift {
+  from { background-position: 0% 50%; }
+  to   { background-position: 100% 50%; }
+}
+
+/* ========== GLASS PANEL ========== */
+.glass-panel {
+  position: relative;
+  --cut: clamp(12px, 2.5vmin, 22px);
+  --border-w: 1.5px;
+  width: 100%;
+  padding: clamp(12px, 2.5vmin, 24px) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.15) 25%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(255, 255, 255, 0.6) 100%);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+  border: none !important; box-shadow: none !important; border-radius: 0 !important;
+}
+.glass-panel::before {
+  content: ""; position: absolute; inset: var(--border-w); z-index: -1;
+  background: radial-gradient(ellipse 120% 60% at 50% -10%, rgba(180, 210, 255, 0.18) 0%, transparent 65%), radial-gradient(ellipse 100% 60% at 50% 110%, rgba(255, 200, 100, 0.08) 0%, transparent 60%), linear-gradient(180deg, rgba(15, 22, 40, 0.35) 0%, rgba(5, 10, 20, 0.55) 100%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+  backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+  clip-path: polygon(calc(var(--cut) - var(--border-w) * 2) 0, 100% 0, 100% calc(100% - var(--cut) + var(--border-w) * 2), calc(100% - var(--cut) + var(--border-w) * 2) 100%, 0 100%, 0 calc(var(--cut) - var(--border-w) * 2));
+}
+
+/* ========== NÚT SỰ KIỆN ========== */
+.event-nav {
+  position: relative; z-index: 20;
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(6px, 1.2vmin, 14px);
+  width: 100%; flex-wrap: wrap; flex-shrink: 0;
+    
+  margin-top: clamp(40px, 8vmin, 70px);   
+  margin-bottom: clamp(10px, 2vmin, 20px);
+}
+.event-btn {
+  --cut: 14px; --border-w: 1.5px;
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: "GFF-Latin-Bold", sans-serif;
+  font-size: clamp(0.72rem, 1.85vmin, 1.2rem);
+  letter-spacing: clamp(1px, 0.4vmin, 2px);
+  text-transform: uppercase; color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 12px rgba(255,255,255,0.2);
+  padding: clamp(10px, 1.6vmin, 18px) clamp(22px, 3.2vmin, 46px);
+  cursor: pointer; white-space: nowrap;
+  border: none; outline: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.25) 25%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.25) 75%, rgba(255,255,255,0.7) 100%);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  isolation: isolate;
+  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), filter 0.35s ease, text-shadow 0.35s ease, background 0.35s ease;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+.event-btn::before {
+  content: ""; position: absolute; inset: var(--border-w); z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 130% 70% at 50% -25%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.08) 45%, transparent 70%), radial-gradient(ellipse 100% 60% at 50% 130%, rgba(255,255,255,0.2) 0%, transparent 60%), linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.08) 100%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%) brightness(1.05);
+  backdrop-filter: blur(14px) saturate(180%) brightness(1.05);
+  clip-path: polygon(calc(var(--cut) - var(--border-w) * 2) 0, 100% 0, 100% calc(100% - var(--cut) + var(--border-w) * 2), calc(100% - var(--cut) + var(--border-w) * 2) 100%, 0 100%, 0 calc(var(--cut) - var(--border-w) * 2));
+}
+.event-btn::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.3) 48%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.3) 52%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.9s cubic-bezier(0.3, 0.8, 0.3, 1);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+}
+.event-btn:hover::after { transform: translateX(120%); }
+.event-btn span { position: relative; z-index: 3; pointer-events: none; }
+.event-btn:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5)) drop-shadow(0 0 8px rgba(255,255,255,0.3));
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 16px rgba(255,255,255,0.45);
+}
+.event-btn.active {
+  background: linear-gradient(135deg, rgba(255,235,160,0.9) 0%, rgba(255,200,60,0.45) 25%, rgba(255,200,60,0.3) 50%, rgba(255,200,60,0.45) 75%, rgba(255,235,160,0.85) 100%);
+  color: #fff8e0;
+  text-shadow: 0 1px 4px rgba(120,60,0,0.7), 0 0 16px rgba(255,215,0,0.7);
+  filter: drop-shadow(0 4px 16px rgba(255,180,20,0.5)) drop-shadow(0 0 6px rgba(255,235,150,0.4));
+}
+.event-btn:active { transform: translateY(0) scale(0.97); }
+
+/* ===== TRANG BANNER: ACTIVE ĐỎ LOANG TRẮNG ===== */
+#page-banner .event-btn.active {
+  background:
+    radial-gradient(ellipse 65% 85% at 15% 20%, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 55%),
+    radial-gradient(ellipse 55% 75% at 85% 78%, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 55%),
+    radial-gradient(ellipse 70% 55% at 50% 10%, rgba(255,220,220,0.55) 0%, rgba(255,220,220,0) 60%),
+    radial-gradient(ellipse 60% 55% at 30% 92%, rgba(255,200,200,0.5) 0%, rgba(255,200,200,0) 60%),
+    radial-gradient(ellipse 80% 70% at 70% 50%, rgba(255,100,100,0.45) 0%, rgba(255,100,100,0) 60%),
+    linear-gradient(135deg, rgba(190,10,10,0.95) 0%, rgba(255,45,45,0.85) 30%, rgba(160,0,0,0.95) 55%, rgba(255,60,60,0.85) 78%, rgba(140,0,0,0.95) 100%);
+  color: #fff;
+  text-shadow:  
+    0 1px 4px rgba(80,0,0,0.9),  
+    0 0 14px rgba(255,80,80,0.85),  
+    0 0 4px rgba(255,255,255,0.5);  
+  filter:  
+    drop-shadow(0 4px 18px rgba(255,30,30,0.65))  
+    drop-shadow(0 0 12px rgba(255,150,150,0.5));  
+}  
+#page-banner .event-btn.active::before {  
+  background:  
+    radial-gradient(ellipse 130% 70% at 50% -25%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.1) 45%, transparent 70%),  
+    radial-gradient(ellipse 100% 60% at 50% 130%, rgba(255,220,220,0.18) 0%, transparent 60%),  
+    linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,220,220,0.04) 50%, rgba(255,255,255,0.12) 100%);  
+}  
+@media (prefers-reduced-motion: no-preference) {  
+  #page-banner .event-btn.active {  
+    background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;  
+    background-position: 0% 0%, 100% 100%, 50% 0%, 0% 100%, 60% 50%, 0% 0%;  
+    animation: redStainPulse 5s ease-in-out infinite alternate;  
+  }  
+  @keyframes redStainPulse {  
+    0% { background-position: 0% 0%, 100% 100%, 50% 0%, 0% 100%, 60% 50%, 0% 0%; }  
+    50% { background-position: 30% 20%, 70% 80%, 45% 15%, 15% 85%, 55% 55%, 0% 0%; }  
+    100% { background-position: 60% 40%, 40% 60%, 40% 30%, 30% 70%, 50% 60%, 0% 0%; }  
+  }  
+}  
+
+@media (max-width: 480px) {  
+  .event-btn { --cut: 10px; --border-w: 1.25px; padding: 8px 16px; font-size: clamp(0.62rem, 2.6vmin, 0.85rem); }  
+}  
+
+/* ========== HEADER ========== */  
+.header {  
+  display: flex; flex-direction: column; align-items: center; justify-content: center;  
+  text-align: center; gap: clamp(4px, 0.8vmin, 10px); flex-shrink: 0;  
+}  
+.logo-img {  
+  height: clamp(48px, 9vmin, 120px); width: auto; max-width: 60%;  
+  object-fit: contain; flex-shrink: 0;  
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.7)) brightness(1.05);  
+  transition: transform 0.3s ease;  
+  pointer-events: none;  
+  -webkit-user-select: none; user-select: none;  
+  -webkit-user-drag: none; user-drag: none;  
+  -webkit-touch-callout: none;  
+  -webkit-tap-highlight-color: transparent;  
+}  
+.logo-img:hover { transform: scale(1.03); }  
+
+/* ========== TAB ========== */  
+.tab-section {  
+  display: flex; flex-direction: column; align-items: center; justify-content: center;  
+  gap: clamp(4px, 0.8vmin, 12px); width: 100%; flex-shrink: 0;  
+}  
+.tab-wrapper { display: flex; justify-content: center; align-items: center; width: 100%; }  
+.tab-image {  
+  max-width: 100%; height: auto; max-height: clamp(60px, 12vmin, 160px);  
+  object-fit: contain;  
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5));  
+  transition: transform 0.25s ease, filter 0.25s ease;  
+  pointer-events: none;  
+  -webkit-user-select: none; user-select: none;  
+  -webkit-user-drag: none; user-drag: none;  
+  -webkit-touch-callout: none;  
+  -webkit-tap-highlight-color: transparent;  
+}  
+
+/* ========== CONTENT ========== */  
+.content {  
+  display: flex; flex-direction: column; align-items: center; justify-content: center;  
+  text-align: center; gap: clamp(6px, 1.6vmin, 24px);  
+  width: 100%; flex: 1; min-height: 0;  
+}  
+.text-image-box {  
+  width: 100%; max-width: min(100%, 980px);  
+  flex: 1 1 auto; min-height: 100px; max-height: 100%;  
+  border-radius: clamp(12px, 1.8vmin, 28px);  
+  background-color: #0d1424;  
+  background-image: url('https://azerst-image-vn.vercel.app/images/orGmr7jOS.png');  
+  background-size: cover; background-position: center; background-repeat: no-repeat;  
+  display: flex; flex-direction: column; align-items: center; justify-content: center;  
+  text-align: center;  
+  padding: clamp(12px, 3vmin, 44px) clamp(16px, 3vmin, 50px);  
+  position: relative; overflow: hidden;  
+  border: 1px solid rgba(255, 215, 0, 0.25);  
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08) inset;  
+  isolation: isolate; margin: 0 auto;  
+  transition: background-image 0.35s ease;  
+  -webkit-user-select: none; user-select: none;  
+  -webkit-touch-callout: none;  
+  -webkit-tap-highlight-color: transparent;  
+}  
+.text-image-box::before {  
+  content: ""; position: absolute; inset: 0; z-index: -1;  
+  background: linear-gradient(180deg, rgba(5,10,25,0.55) 0%, rgba(0,0,0,0.7) 100%);  
+}  
+
+/* ===== BANNER MODE ===== */  
+.content.banner-mode {  
+  justify-content: flex-start;  
+  align-items: stretch;  
+  padding: clamp(8px, 1.5vmin, 18px) !important;  
+  overflow: hidden;  
+}  
+
+.banner-showcase {  
+  display: flex;  
+  flex-direction: column;  
+  gap: clamp(12px, 2vmin, 20px);  
+  flex: 1;  
+  min-height: 0;  
+  width: 100%;  
+  overflow-y: auto;  
+  overflow-x: hidden;  
+  padding: 6px 8px 6px 6px;  
+  -webkit-overflow-scrolling: touch;  
+  scrollbar-width: thin;  
+  scrollbar-color: rgba(255, 215, 0, 0.5) transparent;  
+}  
+.banner-showcase::-webkit-scrollbar { width: 6px; }  
+.banner-showcase::-webkit-scrollbar-track {  
+  background: rgba(255,255,255,0.04);  
+  border-radius: 6px;  
+}  
+.banner-showcase::-webkit-scrollbar-thumb {  
+  background: linear-gradient(180deg, rgba(255,215,0,0.6), rgba(255,180,0,0.4));  
+  border-radius: 6px;  
+}  
+
+/* ===== CARD ===== */  
+.banner-card {  
+  --card-cut: clamp(10px, 1.5vmin, 16px);  
+  position: relative;  
+  flex-shrink: 0;  
+  width: 100%;  
+  background:  
+    radial-gradient(ellipse 130% 60% at 50% 0%, rgba(255, 220, 120, 0.08) 0%, transparent 60%),  
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.03) 100%);  
+  -webkit-backdrop-filter: blur(16px) saturate(150%);  
+  backdrop-filter: blur(16px) saturate(150%);  
+  border: 1px solid rgba(255, 215, 0, 0.3);  
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--card-cut)), calc(100% - var(--card-cut)) 100%, 0 100%);  
+  box-shadow:  
+    0 10px 28px rgba(0, 0, 0, 0.55),  
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);  
+  display: flex;  
+  flex-direction: column;  
+  gap: 10px;  
+  padding: 10px 12px 12px;  
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;  
+}  
+.banner-card:hover {  
+  border-color: rgba(255, 215, 0, 0.6);  
+  box-shadow:  
+    0 14px 36px rgba(0, 0, 0, 0.65),  
+    0 0 22px rgba(255, 200, 50, 0.18),  
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);  
+  transform: translateY(-2px);  
+}  
+
+.banner-card__label {  
+  align-self: flex-start;  
+  display: inline-flex;  
+  align-items: center;  
+  gap: 6px;  
+  font-family: "GFF-Latin-Bold", sans-serif;  
+  font-size: clamp(9px, 1.15vmin, 11px);  
+  letter-spacing: 1.8px;  
+  text-transform: uppercase;  
+  color: #ffe28a;  
+  padding: 4px 10px;  
+  background: rgba(0, 0, 0, 0.4);  
+  border: 1px solid rgba(255, 215, 0, 0.45);  
+  box-shadow:  
+    0 2px 8px rgba(0, 0, 0, 0.4),  
+    inset 0 0 8px rgba(255, 200, 50, 0.08);  
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%);  
+  pointer-events: none;  
+  user-select: none;  
+  white-space: nowrap;  
+}  
+.banner-card__label::before {  
+  content: "";  
+  width: 5px;  
+  height: 5px;  
+  border-radius: 50%;  
+  background: #ffd23a;  
+  box-shadow: 0 0 8px rgba(255, 210, 58, 0.9);  
+  flex-shrink: 0;  
+}  
+
+.banner-card__img {  
+  display: block;  
+  width: 100%;  
+  height: auto;  
+  object-fit: contain;  
+  border-radius: 4px;  
+  background: rgba(0, 0, 0, 0.25);  
+  pointer-events: none;  
+  -webkit-user-select: none; user-select: none;  
+  -webkit-user-drag: none; user-drag: none;  
+  -webkit-touch-callout: none;  
+  -webkit-tap-highlight-color: transparent;  
+  transition: opacity 0.25s ease;  
+}  
+.banner-card__img.is-loading { opacity: 0.4; }  
+
+/* ===== NÚT XEM NHỎ TRÊN TỪNG ẢNH ===== */  
+.banner-card__view {  
+  position: absolute;  
+  bottom: 14px;  
+  right: 14px;  
+  z-index: 5;  
+  display: inline-flex;  
+  align-items: center;  
+  gap: 5px;  
+  padding: 4px 10px 4px 8px;  
+  font-family: "GFF-Latin-Bold", sans-serif;  
+  font-size: 10px;  
+  letter-spacing: 1.6px;  
+  line-height: 1;  
+  text-transform: uppercase;  
+  color: #ffe28a;  
+  background: rgba(0, 0, 0, 0.6);  
+  border: 1px solid rgba(255, 215, 0, 0.55);  
+  clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);  
+  -webkit-backdrop-filter: blur(10px) saturate(140%);  
+  backdrop-filter: blur(10px) saturate(140%);  
+  cursor: pointer;  
+  outline: none;  
+  box-shadow:  
+    0 3px 10px rgba(0, 0, 0, 0.5),  
+    inset 0 0 6px rgba(255, 200, 50, 0.1);  
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;  
+  -webkit-tap-highlight-color: transparent;  
+}  
+.banner-card__view:hover,  
+.banner-card__view:focus-visible {  
+  background: rgba(255, 215, 0, 0.92);  
+  color: #1a0f00;  
+  transform: translateY(-1px) scale(1.06);  
+  box-shadow:  
+    0 6px 18px rgba(255, 200, 50, 0.55),  
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);  
+}  
+.banner-card__view:active { transform: translateY(0) scale(0.97); }  
+.banner-card__view svg {  
+  display: block;  
+  flex-shrink: 0;  
+  stroke: currentColor;  
+  fill: none;  
+  transition: stroke 0.25s ease;  
+}  
+
+.banner-card--portrait {  
+  max-width: min(320px, 65%);  
+  margin: 0 auto;  
+  align-self: center;  
+}  
+
+.footer-note {  
+  font-size: clamp(0.5rem, 1vmin, 0.95rem);  
+  color: rgba(255,255,255,0.45);  
+  letter-spacing: clamp(1px, 0.25vmin, 3px);  
+  text-transform: uppercase;  
+  font-family: "GFF-Latin-Bold", sans-serif;  
+  flex-shrink: 0; text-align: center; white-space: nowrap;  
+}  
+
+/* ========== PORTRAIT ========== */  
+@media (max-aspect-ratio: 1/1) {  
+  .container { gap: clamp(14px, 2.5vmin, 28px); }  
+  .event-nav { margin-top: clamp(35px, 6vmin, 55px); margin-bottom: 0; }  
+  .block-wrap { padding-top: clamp(20px, 3vmin, 34px); }  
+  .block-wrap.header-wrap { padding-top: clamp(42px, 5.6vmin, 66px); }  
+  .content-wrap { flex: 0 1 auto; }  
+  .content { flex: 0 1 auto; gap: clamp(10px, 2vmin, 20px); }  
+  .text-image-box { flex: 0 1 auto; aspect-ratio: 16 / 9; max-height: none; min-height: 0; width: 100%; }  
+  .footer-note { white-space: normal; }  
+  .glass-panel { padding: clamp(12px, 3vmin, 20px) !important; }  
+  .block-label { font-size: clamp(0.7rem, 2.8vmin, 1.15rem); letter-spacing: clamp(1.2px, 0.7vmin, 4px); }  
+  .block-label--tag { font-size: clamp(0.85rem, 2.8vmin, 1.35rem); letter-spacing: clamp(1px, 0.6vmin, 3.5px); }  
+
+  .banner-showcase { max-height: 60vh; }  
+  .banner-card--portrait { max-width: min(240px, 60%); }  
+}  
+
+@media (max-width: 480px) and (max-aspect-ratio: 1/1) {  
+  .container { border-radius: 16px; padding: 16px; gap: 12px; }  
+  .event-nav { margin-top: 35px; }  
+  .block-wrap { padding-top: 20px; }  
+  .block-wrap.header-wrap { padding-top: 42px; }  
+  .logo-img { height: clamp(40px, 9vmin, 70px); max-width: 70%; }  
+  .tab-image { max-height: clamp(48px, 11vmin, 90px); }  
+  .text-image-box { aspect-ratio: 4 / 3; }  
+  .footer-note { font-size: 0.55rem; letter-spacing: 1px; }  
+  .block-label { font-size: clamp(0.62rem, 3.2vmin, 0.95rem); letter-spacing: clamp(1px, 0.6vmin, 3px); padding-left: 4px; }  
+  .block-label--center { padding-left: 0; }  
+  .block-label--tag { font-size: clamp(0.78rem, 3.4vmin, 1.15rem); letter-spacing: clamp(0.8px, 0.5vmin, 2.5px); }  
+  .block-labels { padding-left: 4px; gap: 3px; }  
+  .banner-card--portrait { max-width: 200px; }  
+  .banner-showcase { max-height: 55vh; gap: 12px; }  
+  .banner-card { padding: 8px 10px 10px; gap: 8px; }  
+  .banner-card__view { bottom: 10px; right: 10px; font-size: 9px; padding: 3px 8px 3px 6px; }  
+  .banner-card__view svg { width: 9px; height: 9px; }  
+}  
+
+@media (prefers-reduced-motion: reduce) {  
+  .container { animation: none; }  
+  .tab-image, .logo-img, .event-btn, .banner-card, .banner-card__img { transition: none; }  
+  .tab-image:hover, .logo-img:hover, .event-btn:hover, .banner-card:hover { transform: none; }  
+  .event-btn::after { display: none; }  
+  .block-label--tag { animation: none; }  
+}  
+
+/* ========================================= */  
+/* ========== LIGHTBOX XEM ẢNH ============= */  
+/* ========================================= */  
+.banner-lightbox {  
+  position: fixed;  
+  inset: 0;  
+  z-index: 10000;  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  padding: clamp(16px, 3vmin, 44px);  
+  background: rgba(0, 0, 0, 0.9);  
+  -webkit-backdrop-filter: blur(12px) saturate(140%);  
+  backdrop-filter: blur(12px) saturate(140%);  
+  opacity: 0;  
+  visibility: hidden;  
+  pointer-events: none;  
+  transition: opacity 0.3s ease, visibility 0.3s ease;  
+}  
+.banner-lightbox.active {  
+  opacity: 1;  
+  visibility: visible;  
+  pointer-events: auto;  
+}  
+
+.banner-lightbox__close {  
+  position: absolute;  
+  top: 14px;  
+  right: 14px;  
+  width: 34px;  
+  height: 34px;  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  font-family: "GFF-Latin-Bold", sans-serif;  
+  font-size: 14px;  
+  line-height: 1;  
+  color: #ffe28a;  
+  background: rgba(255, 255, 255, 0.08);  
+  border: 1px solid rgba(255, 215, 0, 0.5);  
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 9px 100%, 0 calc(100% - 9px));  
+  -webkit-backdrop-filter: blur(12px);  
+  backdrop-filter: blur(12px);  
+  cursor: pointer;  
+  outline: none;  
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;  
+  z-index: 2;  
+}  
+.banner-lightbox__close:hover {  
+  background: rgba(255, 215, 0, 0.92);  
+  color: #1a0f00;  
+  transform: scale(1.08);  
+}  
+.banner-lightbox__close:active { transform: scale(0.96); }  
+
+.banner-lightbox__img {  
+  max-width: 100%;  
+  max-height: calc(100vh - 100px);  
+  max-height: calc(100dvh - 100px);  
+  object-fit: contain;  
+  border-radius: 4px;  
+  box-shadow:  
+    0 16px 45px rgba(0, 0, 0, 0.72),  
+    0 0 0 1px rgba(255, 215, 0, 0.25);  
+  -webkit-user-select: none; user-select: none;  
+  -webkit-user-drag: none; user-drag: none;  
+  -webkit-touch-callout: none;  
+  pointer-events: none;  
+  animation: lightboxImgIn 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);  
+}  
+@keyframes lightboxImgIn {  
+  from { opacity: 0; transform: scale(0.92); }  
+  to { opacity: 1; transform: scale(1); }  
+}  
+
+/* ========================================= */  
+/* ========== MENU LIQUID GLASS ============ */  
+/* ========================================= */  
+.ff-menu-wrapper {  
+  position: absolute;  
+  top: clamp(10px, 2vmin, 20px);  
+  left: clamp(10px, 2vmin, 20px);  
+  z-index: 100;  
+  font-family: "GFF-Latin-Bold", sans-serif;  
+}  
+
+.ff-menu-btn {  
+  position: relative;  
+  z-index: 2;  
+  width: 32px;  
+  height: 32px;  
+  background: rgba(255, 255, 255, 0.12);  
+  -webkit-backdrop-filter: blur(12px) saturate(150%);  
+  backdrop-filter: blur(12px) saturate(150%);  
+  border: 1px solid rgba(255, 255, 255, 0.28);  
+  cursor: pointer;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  justify-content: center;  
+  gap: 3px;  
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%);  
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;  
+  outline: none;  
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.15), 0 3px 10px rgba(0, 0, 0, 0.3);  
+}  
+.ff-menu-btn:hover {  
+  background: rgba(255, 255, 255, 0.22);  
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.25), 0 3px 16px rgba(0, 0, 0, 0.4);  
+}  
+.ff-menu-btn:active { transform: scale(0.9); }  
+.ff-menu-btn span {  
+  display: block;  
+  width: 14px;  
+  height: 1.8px;  
+  background: rgba(255, 255, 255, 0.95);  
+  border-radius: 2px;  
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);  
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;  
+}  
+
+.ff-menu-wrapper.active .ff-menu-btn span:nth-child(1) { transform: translateY(4.8px) rotate(45deg); }  
+.ff-menu-wrapper.active .ff-menu-btn span:nth-child(2) { opacity: 0; transform: scaleX(0); }  
+.ff-menu-wrapper.active .ff-menu-btn span:nth-child(3) { transform: translateY(-4.8px) rotate(-45deg); }  
+
+.ff-menu-panel {  
+  position: absolute;  
+  top: 0;  
+  left: 0;  
+  z-index: 1;  
+  width: min(200px, 65vw);  
+  background: rgba(15, 20, 35, 0.6);  
+  -webkit-backdrop-filter: blur(24px) saturate(180%);  
+  backdrop-filter: blur(24px) saturate(180%);  
+  border: 1px solid rgba(255, 255, 255, 0.18);  
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);  
+  padding: 40px 8px 8px;  
+  opacity: 0;  
+  visibility: hidden;  
+  transform: scale(0.85) translate(-8px, -8px);  
+  transform-origin: top left;  
+  transition:  
+    opacity 0.35s ease,  
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),  
+    visibility 0.35s;  
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.06), 0 15px 40px rgba(0, 0, 0, 0.6);  
+}  
+
+.ff-menu-panel::before {  
+  content: "";  
+  position: absolute;  
+  inset: 0;  
+  background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.16) 0%, transparent 60%),  
+              radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);  
+  pointer-events: none;  
+  z-index: -1;  
+}  
+
+.ff-menu-wrapper.active .ff-menu-panel {  
+  opacity: 1;  
+  visibility: visible;  
+  transform: scale(1) translate(0, 0);  
+}  
+
+.ff-menu-list {  
+  list-style: none;  
+  display: flex;  
+  flex-direction: column;  
+  gap: 5px;  
+}  
+
+.ff-menu-item {  
+  --cut: 10px;  
+  position: relative;  
+  display: flex;  
+  align-items: center;  
+  justify-content: space-between;  
+  padding: 9px 12px;  
+  background: rgba(255, 255, 255, 0.03);  
+  border: none;  
+  border-radius: 0;  
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);  
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);  
+  cursor: pointer;  
+  opacity: 0;  
+  transform: translateX(-15px);  
+  transition:  
+    opacity 0.3s ease,  
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),  
+    background 0.25s ease,  
+    box-shadow 0.25s ease;  
+}  
+
+.ff-menu-wrapper.active .ff-menu-item {  
+  opacity: 1;  
+  transform: translateX(0);  
+}  
+.ff-menu-wrapper.active .ff-menu-item:nth-child(1) { transition-delay: 0.12s; }  
+.ff-menu-wrapper.active .ff-menu-item:nth-child(2) { transition-delay: 0.2s; }  
+
+.ff-menu-item:hover {  
+  background: rgba(255, 255, 255, 0.12);  
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);  
+}  
+
+.ff-menu-item.active {  
+  background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.06) 100%);  
+  box-shadow:  
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),  
+    inset 3px 0 0 #fff,  
+    inset 0 0 12px rgba(255,255,255,0.12);  
+}  
+
+.ff-menu-item .menu-text {  
+  font-size: 11px;  
+  color: rgba(255, 255, 255, 0.85);  
+  letter-spacing: 2px;  
+  font-weight: 700;  
+}  
+
+.ff-menu-item.active .menu-text {  
+  color: #fff;  
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);  
+}  
+
+/* ========== BACKDROP KHI MỞ MENU ========== */  
+.menu-backdrop {  
+  position: absolute;  
+  inset: 0;  
+  background: rgba(0, 0, 0, 0.3);  
+  -webkit-backdrop-filter: blur(2px);  
+  backdrop-filter: blur(2px);  
+  opacity: 0;  
+  visibility: hidden;  
+  pointer-events: none;  
+  transition: opacity 0.35s ease, visibility 0.35s ease;  
+  z-index: 90;  
+  border-radius: inherit;  
+}  
+.container.menu-active .menu-backdrop {  
+  opacity: 1;  
+  visibility: visible;  
+  pointer-events: auto;  
+}  
+
+/* Hiệu ứng ẩn hiện trang */  
+.page-section { display: none; }  
+.page-section.active { display: flex; }
+
+  </style>
 </head>
-<body><main class="container">
-<div class="menu" id="menu"><button id="menuBtn" aria-expanded="false">☰ MENU</button><div class="menu-panel"><button data-page="assets">ASSETS</button><button data-page="banner">BANNER</button></div></div>
-<header class="header"><img class="logo" id="titleImage" src="https://azerst-image-vn.vercel.app/images/8F9d2wz2w.png" alt="TITLE SỰ KIỆN"></header>
-<div class="headline" id="headline">MÀN TRÌNH DIỄN KINH DỊ</div><p class="description" id="description"></p>
-<nav class="event-nav" id="eventNav" aria-label="Danh sách sự kiện"></nav>
-<div class="page-switch"><button class="active" data-page="assets">ASSETS</button><button data-page="banner">BANNER</button></div>
-<section id="page-assets"><div class="tab-wrap glass"><div class="label">TAB SỰ KIỆN</div><img class="tab-img" id="tabImage" src="https://azerst-image-vn.vercel.app/images/wRZwa1Bqv.png" alt="Tab sự kiện"></div><div class="glass" style="display:flex;flex-direction:column;flex:1;min-height:220px"><div class="label">BACKGROUND SỰ KIỆN</div><div class="asset-stage" id="backgroundStage" style="background-image:url('https://azerst-image-vn.vercel.app/images/orGmr7jOS.png')"><img id="backgroundPreview" src="https://azerst-image-vn.vercel.app/images/orGmr7jOS.png" alt="Background sự kiện"></div></div></section>
-<section id="page-banner"><div class="banner-grid" id="bannerGrid"></div></section>
-<div class="status" id="status" role="status" aria-live="polite">Đang tải danh sách sự kiện…</div><footer class="footer">© Azerst 2026 – All rights reserved</footer>
-</main>
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh"><button id="closeLightbox">ĐÓNG ✕</button><img id="lightboxImg" alt="Ảnh phóng to"></div>
+<body>
+
+  <!-- ================= TRANG 1: ASSETS ================= -->
+  <div class="page-wrapper page-section active" id="page-assets">
+    <div class="container">
+      <div class="menu-backdrop" aria-hidden="true"></div>
+
+      <div class="ff-menu-wrapper">
+        <button class="ff-menu-btn" aria-label="Mở menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="ff-menu-panel">
+          <ul class="ff-menu-list">
+            <li class="ff-menu-item active" data-target="page-assets">
+              <span class="menu-text">ASSETS</span>
+            </li>
+            <li class="ff-menu-item" data-target="page-banner">
+              <span class="menu-text">BANNER</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="event-nav" aria-label="Danh sách sự kiện"></nav>
+
+      <div class="block-wrap header-wrap">
+        <header class="header glass-panel">
+          <img src="https://azerst-image-vn.vercel.app/images/8F9d2wz2w.png" alt="Logo GFF" class="logo-img" loading="lazy" draggable="false">
+        </header>
+        <div class="block-labels">
+          <div class="block-label block-label--tag" data-tag>MÀN TRÌNH DIỄN KINH DỊ</div>
+          <div class="block-label">TITLE SỰ KIỆN</div>
+        </div>
+      </div>
+
+      <div class="block-wrap tab-wrap">
+        <div class="tab-section glass-panel">
+          <div class="tab-wrapper">
+            <img src="https://azerst-image-vn.vercel.app/images/wRZwa1Bqv.png" alt="Tab điều hướng" class="tab-image" loading="lazy" draggable="false">
+          </div>
+        </div>
+        <div class="block-label">TAB SỰ KIỆN</div>
+      </div>
+
+      <div class="block-wrap content-wrap">
+        <main class="content glass-panel">
+          <div class="text-image-box"></div>
+        </main>
+        <div class="block-label">BACKGROUND SỰ KIỆN</div>
+      </div>
+
+      <div class="footer-note">© Azerst 2026 – All rights reserved</div>
+    </div>
+  </div>
+
+  <!-- ================= TRANG 2: BANNER ================= -->
+  <div class="page-wrapper page-section" id="page-banner">
+    <div class="container">
+      <div class="menu-backdrop" aria-hidden="true"></div>
+
+      <div class="ff-menu-wrapper">
+        <button class="ff-menu-btn" aria-label="Mở menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="ff-menu-panel">
+          <ul class="ff-menu-list">
+            <li class="ff-menu-item" data-target="page-assets">
+              <span class="menu-text">ASSETS</span>
+            </li>
+            <li class="ff-menu-item active" data-target="page-banner">
+              <span class="menu-text">BANNER</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="event-nav" aria-label="Danh sách sự kiện banner"></nav>
+
+      <div class="block-wrap content-wrap">
+        <main class="content glass-panel banner-mode">
+          <div class="banner-showcase">
+
+            <div class="banner-card">
+              <span class="banner-card__label">16 : 9</span>
+              <img src="https://azerst-image-vn.vercel.app/images/eHDvjfDHK.jpg"
+                   alt="Banner 16:9"
+                   class="banner-card__img"
+                   data-banner="16-9"
+                   draggable="false"
+                   loading="lazy">
+              <button type="button" class="banner-card__view" aria-label="Xem ảnh 16:9">
+                <svg viewBox="0 0 24 24" width="10" height="10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <span>XEM</span>
+              </button>
+            </div>
+
+            <div class="banner-card banner-card--portrait">
+              <span class="banner-card__label">436 × 606</span>
+              <img src="https://azerst-image-vn.vercel.app/images/z1R4FBio5.png"
+                   alt="Banner 436x606"
+                   class="banner-card__img"
+                   data-banner="portrait"
+                   draggable="false"
+                   loading="lazy">
+              <button type="button" class="banner-card__view" aria-label="Xem ảnh 436x606">
+                <svg viewBox="0 0 24 24" width="10" height="10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <span>XEM</span>
+              </button>
+            </div>
+
+            <div class="banner-card">
+              <span class="banner-card__label">256 × 107</span>
+              <img src="https://azerst-image-vn.vercel.app/images/GQi503B4g.png"
+                   alt="Banner 256x107"
+                   class="banner-card__img"
+                   data-banner="256"
+                   draggable="false"
+                   loading="lazy">
+              <button type="button" class="banner-card__view" aria-label="Xem ảnh 256x107">
+                <svg viewBox="0 0 24 24" width="10" height="10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <span>XEM</span>
+              </button>
+            </div>
+
+            <div class="banner-card">
+              <span class="banner-card__label">512 × 182</span>
+              <img src="https://azerst-image-vn.vercel.app/images/UlyJpvmBm.png"
+                   alt="Banner 512x182"
+                   class="banner-card__img"
+                   data-banner="512"
+                   draggable="false"
+                   loading="lazy">
+              <button type="button" class="banner-card__view" aria-label="Xem ảnh 512x182">
+                <svg viewBox="0 0 24 24" width="10" height="10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <span>XEM</span>
+              </button>
+            </div>
+
+          </div>
+        </main>
+        <div class="block-label block-label--center" data-banner-label>TÀ LINH ĐỔ BỘ</div>
+      </div>
+
+      <div class="footer-note">© Azerst 2026 – All rights reserved</div>
+    </div>
+  </div>
+
+  <!-- ================= LIGHTBOX XEM ẢNH ================= -->
+  <div class="banner-lightbox" id="bannerLightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh banner">
+    <button type="button" class="banner-lightbox__close" aria-label="Đóng">✕</button>
+    <img class="banner-lightbox__img" src="" alt="Ảnh banner phóng to" draggable="false">
+  </div>
+
 <script>
-/* Điền Project URL và publishable/anon key của Supabase tại đây. Không dùng service_role/secret key. */
-const SUPABASE_URL="PASTE_SUPABASE_PROJECT_URL_HERE";
-const SUPABASE_ANON_KEY="PASTE_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE";
-const FALLBACK=[
-{name:"Sự kiện 1",title:"MÀN TRÌNH DIỄN KINH DỊ",description:"",title_url:"https://azerst-image-vn.vercel.app/images/8F9d2wz2w.png",tab_url:"https://azerst-image-vn.vercel.app/images/wRZwa1Bqv.png",background_url:"https://azerst-image-vn.vercel.app/images/orGmr7jOS.png"},
-{name:"Sự kiện 2",title:"MÓNG VUỐT TAI HOẠ",description:"",title_url:"https://azerst-image-vn.vercel.app/images/m4jwa7iMn.png",tab_url:"https://azerst-image-vn.vercel.app/images/Xl6yeAKFU.png",background_url:"https://azerst-image-vn.vercel.app/images/QOoBqwG3R.png"},
-{name:"Sự kiện 3",title:"HÀNH ĐỘNG HALLOWEEN",description:"",title_url:"https://azerst-image-vn.vercel.app/images/mw5xbjnMj.png",tab_url:"https://azerst-image-vn.vercel.app/images/GsqjGtxDt.png",background_url:"https://azerst-image-vn.vercel.app/images/rGM5HmhEG.png"}];
-const BANNERS=[
-{label:"16 : 9",url:"https://azerst-image-vn.vercel.app/images/eHDvjfDHK.jpg"},
-{label:"436 × 606",url:"https://azerst-image-vn.vercel.app/images/z1R4FBio5.png",portrait:true},
-{label:"256 × 107",url:"https://azerst-image-vn.vercel.app/images/GQi503B4g.png"},
-{label:"512 × 182",url:"https://azerst-image-vn.vercel.app/images/UlyJpvmBm.png"}];
-let events=[],activeId=null,currentPage="assets",pollHandle=null;
-const $=id=>document.getElementById(id);
-function validUrl(s){try{const u=new URL(s);return u.protocol==="https:"||u.protocol==="http:"}catch{return false}}
-function safeImage(el,url){if(url&&validUrl(url)){el.src=url}else{el.removeAttribute("src")}}
-async function loadEvents(){if(!SUPABASE_URL.startsWith("https://")||SUPABASE_URL.includes("PASTE_")||SUPABASE_ANON_KEY.includes("PASTE_")){events=FALLBACK.map((e,i)=>({...e,id:"demo-"+i}));render();$("status").textContent="Chưa cấu hình Supabase — đang hiển thị dữ liệu mẫu.";return}
-try{const base=SUPABASE_URL.replace(/\/+$/,"");const res=await fetch(base+"/rest/v1/events?select=id,name,title,description,title_url,tab_url,background_url,sort_order&order=sort_order.asc,created_at.asc",{headers:{apikey:SUPABASE_ANON_KEY,Authorization:"Bearer "+SUPABASE_ANON_KEY}});if(!res.ok)throw Error("HTTP "+res.status);const data=await res.json();events=data.length?data:FALLBACK.map((e,i)=>({...e,id:"demo-"+i}));if(!events.some(e=>String(e.id)===String(activeId)))activeId=events.length?String(events[0].id):null;render();$("status").textContent=data.length?"Đã đồng bộ dữ liệu sự kiện.":"Chưa có sự kiện trong Supabase — đang hiển thị dữ liệu mẫu."}catch(e){if(!events.length)events=FALLBACK.map((e,i)=>({...e,id:"demo-"+i}));render();$("status").textContent="Không thể tải Supabase; đang hiển thị dữ liệu mẫu. Kiểm tra URL, key và chính sách RLS."}}
-function render(){const nav=$("eventNav");nav.replaceChildren();events.forEach((ev,i)=>{const b=document.createElement("button");b.type="button";b.className="event-btn"+(String(ev.id)===String(activeId)?" active":"");b.textContent=ev.name||("Sự kiện "+(i+1));b.addEventListener("click",()=>{activeId=String(ev.id);render()});nav.append(b)});const ev=events.find(e=>String(e.id)===String(activeId))||events[0];if(!ev){$("headline").textContent="Chưa có sự kiện";$("description").textContent="";return}activeId=String(ev.id);$("headline").textContent=ev.title||ev.name||"";$("description").textContent=ev.description||"";safeImage($("titleImage"),ev.title_url);safeImage($("tabImage"),ev.tab_url);safeImage($("backgroundPreview"),ev.background_url);$("backgroundStage").style.backgroundImage=ev.background_url&&validUrl(ev.background_url)?`url("${ev.background_url.replace(/["\\]/g,"")}")`:"none";renderBanners(ev)}
-function renderBanners(ev){const grid=$("bannerGrid");grid.replaceChildren();BANNERS.forEach((item,i)=>{const card=document.createElement("div");card.className="banner-card"+(item.portrait?" portrait":"");const label=document.createElement("div");label.className="label";label.textContent=item.label;const img=document.createElement("img");img.alt="Banner "+item.label;img.loading="lazy";safeImage(img,item.url);const button=document.createElement("button");button.type="button";button.textContent="◉ XEM ẢNH";button.addEventListener("click",()=>{if(img.src){$("lightboxImg").src=img.src;$("lightbox").classList.add("open")}});card.append(label,img,button);grid.append(card)})}
-function setPage(page){currentPage=page;$("page-assets").style.display=page==="assets"?"flex":"none";$("page-banner").style.display=page==="banner"?"block":"none";document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("menu").classList.remove("open");$("menuBtn").setAttribute("aria-expanded","false")}
-$("menuBtn").addEventListener("click",()=>{const open=$("menu").classList.toggle("open");$("menuBtn").setAttribute("aria-expanded",String(open))});document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.page)));$("closeLightbox").addEventListener("click",()=>$("lightbox").classList.remove("open"));$("lightbox").addEventListener("click",e=>{if(e.target===$("lightbox"))$("lightbox").classList.remove("open")});document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("lightbox").classList.remove("open");$("menu").classList.remove("open")}});
-loadEvents();if(!pollHandle)pollHandle=setInterval(loadEvents,15000);
-</script></body></html>
+(function () {
+  'use strict';
+
+  /* ================== DỮ LIỆU MẶC ĐỊNH (khi Admin chưa gửi gì) ================== */
+  var DEFAULT_DATA = {
+    siteTitle: 'TAB SỰ KIỆN | Trang chủ',
+    footer: '© Azerst 2026 – All rights reserved',
+    events: [
+      {
+        id: '1', name: 'Sự kiện 1',
+        tag: 'MÀN TRÌNH DIỄN KINH DỊ',
+        logo: 'https://azerst-image-vn.vercel.app/images/8F9d2wz2w.png',
+        tab:  'https://azerst-image-vn.vercel.app/images/wRZwa1Bqv.png',
+        bg:   'https://azerst-image-vn.vercel.app/images/orGmr7jOS.png',
+        bannerLabel: 'TÀ LINH ĐỔ BỘ',
+        banners: {
+          '16-9':     'https://azerst-image-vn.vercel.app/images/eHDvjfDHK.jpg',
+          'portrait': 'https://azerst-image-vn.vercel.app/images/z1R4FBio5.png',
+          '256':      'https://azerst-image-vn.vercel.app/images/GQi503B4g.png',
+          '512':      'https://azerst-image-vn.vercel.app/images/UlyJpvmBm.png'
+        }
+      },
+      {
+        id: '2', name: 'Sự kiện 2',
+        tag: 'MÓNG VUỐT TAI HOẠ',
+        logo: 'https://azerst-image-vn.vercel.app/images/m4jwa7iMn.png',
+        tab:  'https://azerst-image-vn.vercel.app/images/Xl6yeAKFU.png',
+        bg:   'https://azerst-image-vn.vercel.app/images/QOoBqwG3R.png',
+        bannerLabel: 'MÀN TRÌNH DIỄN KINH DỊ',
+        banners: {
+          '16-9':     'https://azerst-image-vn.vercel.app/images/64SsEq3sh.jpg',
+          'portrait': 'https://azerst-image-vn.vercel.app/images/NkS5Uib75.png',
+          '256':      'https://azerst-image-vn.vercel.app/images/4q4A1mvDU.png',
+          '512':      'https://azerst-image-vn.vercel.app/images/dmbomVVfA.png'
+        }
+      },
+      {
+        id: '3', name: 'Sự kiện 3',
+        tag: 'HÀNH ĐỘNG HALLOWEEN',
+        logo: 'https://azerst-image-vn.vercel.app/images/mw5xbjnMj.png',
+        tab:  'https://azerst-image-vn.vercel.app/images/GsqjGtxDt.png',
+        bg:   'https://azerst-image-vn.vercel.app/images/rGM5HmhEG.png',
+        bannerLabel: 'MÓNG VUỐT TAI HỌA',
+        banners: {
+          '16-9':     'https://azerst-image-vn.vercel.app/images/hTbfK9XRk.png',
+          'portrait': 'https://azerst-image-vn.vercel.app/images/MrGWGnY3e.png',
+          '256':      'https://azerst-image-vn.vercel.app/images/9pWreeN5O.png',
+          '512':      'https://azerst-image-vn.vercel.app/images/UUOllEYiO.png'
+        }
+      }
+    ]
+  };
+
+  /* ================== HELPERS ================== */
+  function b64urlDecode(str) {
+    try {
+      var s = String(str).replace(/-/g, '+').replace(/_/g, '/');
+      while (s.length % 4) s += '=';
+      var bin = atob(s);
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return new TextDecoder().decode(bytes);
+    } catch (e) { return null; }
+  }
+
+  function normalize(d) {
+    d = d || {};
+    d.siteTitle = d.siteTitle || DEFAULT_DATA.siteTitle;
+    d.footer    = d.footer    || DEFAULT_DATA.footer;
+    if (!Array.isArray(d.events) || !d.events.length) return null;
+    d.events = d.events.map(function (ev, i) {
+      ev = ev || {};
+      return {
+        id:          ev.id || String(i + 1),
+        name:        ev.name || ('Sự kiện ' + (i + 1)),
+        tag:         ev.tag || '',
+        logo:        ev.logo || '',
+        tab:         ev.tab || '',
+        bg:          ev.bg || '',
+        bannerLabel: ev.bannerLabel || '',
+        banners: {
+          '16-9':     (ev.banners && ev.banners['16-9'])     || '',
+          'portrait': (ev.banners && ev.banners['portrait']) || '',
+          '256':      (ev.banners && ev.banners['256'])      || '',
+          '512':      (ev.banners && ev.banners['512'])      || ''
+        }
+      };
+    });
+    return d;
+  }
+
+  /* ================== NGUỒN DỮ LIỆU ================== */
+  var SITE = normalize(JSON.parse(JSON.stringify(DEFAULT_DATA)));
+
+  function readFromUrl() {
+    var hash = location.hash || '';
+    var raw = null;
+    if (hash.indexOf('#d=') === 0) raw = hash.slice(3);
+    if (!raw) {
+      try {
+        var q = new URLSearchParams(location.search).get('d');
+        if (q) raw = q;
+      } catch (e) {}
+    }
+    if (!raw) return null;
+    var json = b64urlDecode(raw);
+    if (!json) return null;
+    try { return normalize(JSON.parse(json)); } catch (e) { return null; }
+  }
+
+  function loadDataJson() {
+    return fetch('data.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { return d ? normalize(d) : null; })
+      .catch(function () { return null; });
+  }
+
+  /* ================== RENDER ================== */
+  function getEvent(key) {
+    if (!SITE || !SITE.events.length) return null;
+    for (var i = 0; i < SITE.events.length; i++) {
+      if (SITE.events[i].id === key) return SITE.events[i];
+    }
+    return SITE.events[0];
+  }
+
+  function renderNav() {
+    document.querySelectorAll('.page-section').forEach(function (page) {
+      var nav = page.querySelector('.event-nav');
+      if (!nav) return;
+      nav.innerHTML = '';
+      SITE.events.forEach(function (ev, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'event-btn' + (i === 0 ? ' active' : '');
+        b.setAttribute('data-event', ev.id);
+        var s = document.createElement('span');
+        s.textContent = ev.name || ('Sự kiện ' + (i + 1));
+        b.appendChild(s);
+        nav.appendChild(b);
+      });
+    });
+  }
+
+  function applyToPage(page, key) {
+    var ev = getEvent(key);
+    if (!ev || !page) return;
+
+    if (page.id === 'page-assets') {
+      var logoEl = page.querySelector('.logo-img');
+      var tabEl  = page.querySelector('.tab-image');
+      var bgEl   = page.querySelector('.text-image-box');
+      var tagEl  = page.querySelector('[data-tag]');
+
+      if (logoEl) {
+        if (ev.logo) { logoEl.style.display = ''; logoEl.src = ev.logo; }
+        else { logoEl.style.display = 'none'; }
+      }
+      if (tabEl) {
+        if (ev.tab) { tabEl.style.display = ''; tabEl.src = ev.tab; }
+        else { tabEl.style.display = 'none'; }
+      }
+      if (bgEl) {
+        bgEl.style.backgroundImage = ev.bg ? "url('" + ev.bg.replace(/'/g, "\\'") + "')" : '';
+      }
+      if (tagEl) tagEl.textContent = ev.tag || '';
+
+    } else if (page.id === 'page-banner') {
+      var labelEl = page.querySelector('[data-banner-label]');
+      if (labelEl) labelEl.textContent = ev.bannerLabel || '';
+
+      page.querySelectorAll('.banner-card').forEach(function (card) {
+        var img = card.querySelector('.banner-card__img');
+        if (!img) return;
+        var slot = img.getAttribute('data-banner');
+        var url = (ev.banners && ev.banners[slot]) || '';
+        if (url) {
+          card.style.display = '';
+          if (img.getAttribute('src') !== url) {
+            img.classList.add('is-loading');
+            var pre = new Image();
+            pre.onload = pre.onerror = function () {
+              img.src = url;
+              img.classList.remove('is-loading');
+            };
+            pre.src = url;
+          }
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  }
+
+  function selectEvent(key) {
+    document.querySelectorAll('.event-btn').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-event') === key);
+    });
+    document.querySelectorAll('.page-section').forEach(function (p) {
+      applyToPage(p, key);
+    });
+  }
+
+  function preloadAll() {
+    SITE.events.forEach(function (ev) {
+      [ev.logo, ev.tab, ev.bg].forEach(function (u) {
+        if (u) { var im = new Image(); im.src = u; }
+      });
+      if (ev.banners) {
+        Object.keys(ev.banners).forEach(function (k) {
+          if (ev.banners[k]) { var im2 = new Image(); im2.src = ev.banners[k]; }
+        });
+      }
+    });
+  }
+
+  function boot() {
+    if (SITE.siteTitle) document.title = SITE.siteTitle;
+    document.querySelectorAll('.footer-note').forEach(function (el) {
+      if (SITE.footer) el.textContent = SITE.footer;
+    });
+    renderNav();
+    var first = SITE.events[0];
+    if (first) selectEvent(first.id);
+    preloadAll();
+  }
+
+  /* ================== SỰ KIỆN CLICK NÚT (delegation toàn trang) ================== */
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.event-btn');
+    if (!btn) return;
+    e.preventDefault();
+    var key = btn.getAttribute('data-event');
+    selectEvent(key);
+  });
+
+  /* ================== LIGHTBOX ================== */
+  var lightbox = document.getElementById('bannerLightbox');
+  var lightboxImg = lightbox.querySelector('.banner-lightbox__img');
+  var lightboxClose = lightbox.querySelector('.banner-lightbox__close');
+
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add('active');
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+  }
+
+  document.addEventListener('click', function (e) {
+    var viewBtn = e.target.closest('.banner-card__view');
+    if (viewBtn) {
+      e.stopPropagation();
+      var card = viewBtn.closest('.banner-card');
+      var img = card ? card.querySelector('.banner-card__img') : null;
+      if (img && img.src) openLightbox(img.src);
+      return;
+    }
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+  });
+
+  /* ================== MENU ================== */
+  function closeAllMenus() {
+    document.querySelectorAll('.ff-menu-wrapper.active').forEach(function (w) {
+      w.classList.remove('active');
+      var btn = w.querySelector('.ff-menu-btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      var container = w.closest('.container');
+      if (container) container.classList.remove('menu-active');
+    });
+  }
+
+  document.querySelectorAll('.ff-menu-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var wrapper = this.closest('.ff-menu-wrapper');
+      var container = wrapper.closest('.container');
+      var wasActive = wrapper.classList.contains('active');
+      if (!wasActive) closeAllMenus();
+      var isOpen = !wasActive;
+      wrapper.classList.toggle('active', isOpen);
+      this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (container) container.classList.toggle('menu-active', isOpen);
+    });
+  });
+
+  document.querySelectorAll('.ff-menu-item').forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var targetId = this.getAttribute('data-target');
+      document.querySelectorAll('.ff-menu-item').forEach(function (i) {
+        i.classList.toggle('active', i.getAttribute('data-target') === targetId);
+      });
+      document.querySelectorAll('.page-section').forEach(function (p) {
+        p.classList.remove('active');
+      });
+      var targetPage = document.getElementById(targetId);
+      if (targetPage) {
+        targetPage.classList.add('active');
+        /* Đồng bộ sự kiện đang chọn sang trang vừa mở */
+        var activeBtn = targetPage.querySelector('.event-btn.active');
+        if (activeBtn) applyToPage(targetPage, activeBtn.getAttribute('data-event'));
+      }
+      closeAllMenus();
+    });
+  });
+
+  document.querySelectorAll('.menu-backdrop').forEach(function (bd) {
+    bd.addEventListener('click', function (e) { e.stopPropagation(); closeAllMenus(); });
+  });
+
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.ff-menu-wrapper.active').forEach(function (w) {
+      if (!w.contains(e.target)) closeAllMenus();
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeAllMenus();
+  });
+
+  /* ================== CHỐNG LƯU ẢNH ================== */
+  document.querySelectorAll('.logo-img, .tab-image, .banner-card__img, .banner-lightbox__img').forEach(function (img) {
+    img.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    img.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    img.addEventListener('selectstart', function (e) { e.preventDefault(); });
+  });
+  document.querySelectorAll('.header, .tab-section, .banner-card, .banner-showcase, .banner-lightbox').forEach(function (el) {
+    el.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    el.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    el.addEventListener('selectstart', function (e) { e.preventDefault(); });
+  });
+
+  /* ================== KHỞI ĐỘNG ================== */
+  var fromUrl = readFromUrl();
+  if (fromUrl) {
+    SITE = fromUrl;
+    boot();
+  } else {
+    boot();
+    loadDataJson().then(function (d) {
+      if (d) { SITE = d; boot(); }
+    });
+  }
+})();
+</script>
+</body>
+  </html>
