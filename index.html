@@ -181,54 +181,54 @@ body::before {
     
   margin-top: clamp(40px, 8vmin, 70px);   
   margin-bottom: clamp(10px, 2vmin, 20px);
-}
-.event-btn {
-  --cut: 14px; --border-w: 1.5px;
-  position: relative;
-  display: inline-flex; align-items: center; justify-content: center;
-  font-family: "GFF-Latin-Bold", sans-serif;
-  font-size: clamp(0.72rem, 1.85vmin, 1.2rem);
-  letter-spacing: clamp(1px, 0.4vmin, 2px);
-  text-transform: uppercase; color: #fff;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 12px rgba(255,255,255,0.2);
-  padding: clamp(10px, 1.6vmin, 18px) clamp(22px, 3.2vmin, 46px);
-  cursor: pointer; white-space: nowrap;
-  border: none; outline: none;
-  background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.25) 25%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.25) 75%, rgba(255,255,255,0.7) 100%);
-  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
-  isolation: isolate;
-  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), filter 0.35s ease, text-shadow 0.35s ease, background 0.35s ease;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
-}
-.event-btn::before {
-  content: ""; position: absolute; inset: var(--border-w); z-index: 1;
-  pointer-events: none;
-  background: radial-gradient(ellipse 130% 70% at 50% -25%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.08) 45%, transparent 70%), radial-gradient(ellipse 100% 60% at 50% 130%, rgba(255,255,255,0.2) 0%, transparent 60%), linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.08) 100%);
-  -webkit-backdrop-filter: blur(14px) saturate(180%) brightness(1.05);
-  backdrop-filter: blur(14px) saturate(180%) brightness(1.05);
-  clip-path: polygon(calc(var(--cut) - var(--border-w) * 2) 0, 100% 0, 100% calc(100% - var(--cut) + var(--border-w) * 2), calc(100% - var(--cut) + var(--border-w) * 2) 100%, 0 100%, 0 calc(var(--cut) - var(--border-w) * 2));
-}
-.event-btn::after {
-  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.3) 48%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.3) 52%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 0.9s cubic-bezier(0.3, 0.8, 0.3, 1);
-  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
-}
-.event-btn:hover::after { transform: translateX(120%); }
-.event-btn span { position: relative; z-index: 3; pointer-events: none; }
-.event-btn:hover {
-  transform: translateY(-2px);
-  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5)) drop-shadow(0 0 8px rgba(255,255,255,0.3));
-  text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 16px rgba(255,255,255,0.45);
-}
-.event-btn.active {
-  background: linear-gradient(135deg, rgba(255,235,160,0.9) 0%, rgba(255,200,60,0.45) 25%, rgba(255,200,60,0.3) 50%, rgba(255,200,60,0.45) 75%, rgba(255,235,160,0.85) 100%);
-  color: #fff8e0;
-  text-shadow: 0 1px 4px rgba(120,60,0,0.7), 0 0 16px rgba(255,215,0,0.7);
-  filter: drop-shadow(0 4px 16px rgba(255,180,20,0.5)) drop-shadow(0 0 6px rgba(255,235,150,0.4));
-}
-.event-btn:active { transform: translateY(0) scale(0.97); }
+}  
+.event-btn {  
+  --cut: 14px; --border-w: 1.5px;  
+  position: relative;  
+  display: inline-flex; align-items: center; justify-content: center;  
+  font-family: "GFF-Latin-Bold", sans-serif;  
+  font-size: clamp(0.72rem, 1.85vmin, 1.2rem);  
+  letter-spacing: clamp(1px, 0.4vmin, 2px);  
+  text-transform: uppercase; color: #fff;  
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 12px rgba(255,255,255,0.2);  
+  padding: clamp(10px, 1.6vmin, 18px) clamp(22px, 3.2vmin, 46px);  
+  cursor: pointer; white-space: nowrap;  
+  border: none; outline: none;  
+  background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.25) 25%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.25) 75%, rgba(255,255,255,0.7) 100%);  
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));  
+  isolation: isolate;  
+  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), filter 0.35s ease, text-shadow 0.35s ease, background 0.35s ease;  
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));  
+}  
+.event-btn::before {  
+  content: ""; position: absolute; inset: var(--border-w); z-index: 1;  
+  pointer-events: none;  
+  background: radial-gradient(ellipse 130% 70% at 50% -25%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.08) 45%, transparent 70%), radial-gradient(ellipse 100% 60% at 50% 130%, rgba(255,255,255,0.2) 0%, transparent 60%), linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.08) 100%);  
+  -webkit-backdrop-filter: blur(14px) saturate(180%) brightness(1.05);  
+  backdrop-filter: blur(14px) saturate(180%) brightness(1.05);  
+  clip-path: polygon(calc(var(--cut) - var(--border-w) * 2) 0, 100% 0, 100% calc(100% - var(--cut) + var(--border-w) * 2), calc(100% - var(--cut) + var(--border-w) * 2) 100%, 0 100%, 0 calc(var(--cut) - var(--border-w) * 2));  
+}  
+.event-btn::after {  
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;  
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.3) 48%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.3) 52%, transparent 70%);  
+  transform: translateX(-120%);  
+  transition: transform 0.9s cubic-bezier(0.3, 0.8, 0.3, 1);  
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));  
+}  
+.event-btn:hover::after { transform: translateX(120%); }  
+.event-btn span { position: relative; z-index: 3; pointer-events: none; }  
+.event-btn:hover {  
+  transform: translateY(-2px);  
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5)) drop-shadow(0 0 8px rgba(255,255,255,0.3));  
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 16px rgba(255,255,255,0.45);  
+}  
+.event-btn.active {  
+  background: linear-gradient(135deg, rgba(255,235,160,0.9) 0%, rgba(255,200,60,0.45) 25%, rgba(255,200,60,0.3) 50%, rgba(255,200,60,0.45) 75%, rgba(255,235,160,0.85) 100%);  
+  color: #fff8e0;  
+  text-shadow: 0 1px 4px rgba(120,60,0,0.7), 0 0 16px rgba(255,215,0,0.7);  
+  filter: drop-shadow(0 4px 16px rgba(255,180,20,0.5)) drop-shadow(0 0 6px rgba(255,235,150,0.4));  
+}  
+.event-btn:active { transform: translateY(0) scale(0.97); }  
 
 /* ===== TRANG BANNER: ACTIVE ĐỎ LOANG TRẮNG ===== */
 #page-banner .event-btn.active {
@@ -965,7 +965,7 @@ body::before {
     </div>
   </div>
 
-  <!-- ================= LIGHTBOX XEM ẢNH ================= -->
+  <!-- ================= LIGHTBOX ================= -->
   <div class="banner-lightbox" id="bannerLightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh banner">
     <button type="button" class="banner-lightbox__close" aria-label="Đóng">✕</button>
     <img class="banner-lightbox__img" src="" alt="Ảnh banner phóng to" draggable="false">
@@ -975,7 +975,9 @@ body::before {
 (function () {
   'use strict';
 
-  /* ================== DỮ LIỆU MẶC ĐỊNH (khi Admin chưa gửi gì) ================== */
+  /* ============================================================
+     DỮ LIỆU MẶC ĐỊNH
+  ============================================================ */
   var DEFAULT_DATA = {
     siteTitle: 'TAB SỰ KIỆN | Trang chủ',
     footer: '© Azerst 2026 – All rights reserved',
@@ -1025,20 +1027,43 @@ body::before {
     ]
   };
 
-  /* ================== HELPERS ================== */
+  /* ============================================================
+     HELPERS
+  ============================================================ */
+  var DEBUG = /(?:\?|&)debug=1/.test(location.search) || /debug=1/.test(location.hash);
+  function log() {
+    if (!DEBUG) return;
+    try { console.log.apply(console, ['[User]'].concat([].slice.call(arguments))); } catch (e) {}
+  }
+  function warn() {
+    try { console.warn.apply(console, ['[User]'].concat([].slice.call(arguments))); } catch (e) {}
+  }
+
+  // Decode base64 URL-safe → UTF-8 string
   function b64urlDecode(str) {
     try {
-      var s = String(str).replace(/-/g, '+').replace(/_/g, '/');
+      if (!str) return null;
+      var s = String(str).replace(/\s/g, '').replace(/-/g, '+').replace(/_/g, '/');
       while (s.length % 4) s += '=';
       var bin = atob(s);
       var bytes = new Uint8Array(bin.length);
       for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-      return new TextDecoder().decode(bytes);
-    } catch (e) { return null; }
+      // TextDecoder để xử lý UTF-8
+      if (typeof TextDecoder !== 'undefined') {
+        return new TextDecoder('utf-8', { fatal: false }).decode(bytes);
+      }
+      // Fallback cho trình duyệt rất cũ
+      var out = '';
+      for (var j = 0; j < bytes.length; j++) out += String.fromCharCode(bytes[j]);
+      return decodeURIComponent(escape(out));
+    } catch (e) {
+      warn('b64urlDecode failed:', e && e.message);
+      return null;
+    }
   }
 
   function normalize(d) {
-    d = d || {};
+    if (!d || typeof d !== 'object') return null;
     d.siteTitle = d.siteTitle || DEFAULT_DATA.siteTitle;
     d.footer    = d.footer    || DEFAULT_DATA.footer;
     if (!Array.isArray(d.events) || !d.events.length) return null;
@@ -1063,33 +1088,77 @@ body::before {
     return d;
   }
 
-  /* ================== NGUỒN DỮ LIỆU ================== */
-  var SITE = normalize(JSON.parse(JSON.stringify(DEFAULT_DATA)));
-
+  /* ============================================================
+     ĐỌC DỮ LIỆU TỪ URL (?d= hoặc #d=)
+  ============================================================ */
   function readFromUrl() {
-    var hash = location.hash || '';
     var raw = null;
-    if (hash.indexOf('#d=') === 0) raw = hash.slice(3);
+    var source = 'none';
+
+    // 1) Query ?d=... (ưu tiên — an toàn hơn khi share qua Zalo/Messenger)
+    try {
+      var qs = location.search || '';
+      var m = qs.match(/[?&]d=([^&]+)/);
+      if (m && m[1]) { raw = m[1]; source = 'query'; }
+    } catch (e) {}
+
+    // 2) Hash #d=...
     if (!raw) {
       try {
-        var q = new URLSearchParams(location.search).get('d');
-        if (q) raw = q;
+        var hash = location.hash || '';
+        // Decode URI (phòng khi bị encode)
+        try { hash = decodeURIComponent(hash); } catch (e) {}
+        var hm = hash.match(/^#?d=(.+)$/);
+        if (hm && hm[1]) { raw = hm[1]; source = 'hash'; }
       } catch (e) {}
     }
-    if (!raw) return null;
+
+    if (!raw) { log('Không có tham số d= trong URL'); return null; }
+
+    // Xoá khoảng trắng, ký tự lạ do copy/paste
+    raw = raw.replace(/[\s"']/g, '');
+
+    log('Đọc dữ liệu từ ' + source + ', độ dài base64 =', raw.length);
     var json = b64urlDecode(raw);
-    if (!json) return null;
-    try { return normalize(JSON.parse(json)); } catch (e) { return null; }
+    if (!json) { warn('Không decode được URL. raw=', raw.slice(0, 60) + '...'); return null; }
+
+    try {
+      var parsed = JSON.parse(json);
+      var norm = normalize(parsed);
+      if (!norm) { warn('Dữ liệu JSON không hợp lệ (thiếu events)'); return null; }
+      log('OK — nạp ' + norm.events.length + ' sự kiện từ URL (' + source + ')');
+      return norm;
+    } catch (e) {
+      warn('JSON.parse lỗi:', e && e.message);
+      return null;
+    }
   }
 
+  /* ============================================================
+     ĐỌC data.json (cùng thư mục — dùng cho cách upload file)
+  ============================================================ */
   function loadDataJson() {
     return fetch('data.json?t=' + Date.now(), { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) { return d ? normalize(d) : null; })
-      .catch(function () { return null; });
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (d) {
+        var n = normalize(d);
+        if (n) log('OK — nạp ' + n.events.length + ' sự kiện từ data.json');
+        return n;
+      })
+      .catch(function (e) {
+        log('Không có data.json hoặc lỗi:', e && e.message);
+        return null;
+      });
   }
 
-  /* ================== RENDER ================== */
+  /* ============================================================
+     RENDER
+  ============================================================ */
+  var SITE = null;
+
   function getEvent(key) {
     if (!SITE || !SITE.events.length) return null;
     for (var i = 0; i < SITE.events.length; i++) {
@@ -1199,16 +1268,19 @@ body::before {
     preloadAll();
   }
 
-  /* ================== SỰ KIỆN CLICK NÚT (delegation toàn trang) ================== */
+  /* ============================================================
+     CLICK NÚT SỰ KIỆN
+  ============================================================ */
   document.addEventListener('click', function (e) {
     var btn = e.target.closest('.event-btn');
     if (!btn) return;
     e.preventDefault();
-    var key = btn.getAttribute('data-event');
-    selectEvent(key);
+    selectEvent(btn.getAttribute('data-event'));
   });
 
-  /* ================== LIGHTBOX ================== */
+  /* ============================================================
+     LIGHTBOX
+  ============================================================ */
   var lightbox = document.getElementById('bannerLightbox');
   var lightboxImg = lightbox.querySelector('.banner-lightbox__img');
   var lightboxClose = lightbox.querySelector('.banner-lightbox__close');
@@ -1240,7 +1312,9 @@ body::before {
     if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
   });
 
-  /* ================== MENU ================== */
+  /* ============================================================
+     MENU
+  ============================================================ */
   function closeAllMenus() {
     document.querySelectorAll('.ff-menu-wrapper.active').forEach(function (w) {
       w.classList.remove('active');
@@ -1278,7 +1352,6 @@ body::before {
       var targetPage = document.getElementById(targetId);
       if (targetPage) {
         targetPage.classList.add('active');
-        /* Đồng bộ sự kiện đang chọn sang trang vừa mở */
         var activeBtn = targetPage.querySelector('.event-btn.active');
         if (activeBtn) applyToPage(targetPage, activeBtn.getAttribute('data-event'));
       }
@@ -1300,7 +1373,9 @@ body::before {
     if (e.key === 'Escape') closeAllMenus();
   });
 
-  /* ================== CHỐNG LƯU ẢNH ================== */
+  /* ============================================================
+     CHỐNG LƯU ẢNH
+  ============================================================ */
   document.querySelectorAll('.logo-img, .tab-image, .banner-card__img, .banner-lightbox__img').forEach(function (img) {
     img.addEventListener('contextmenu', function (e) { e.preventDefault(); });
     img.addEventListener('dragstart', function (e) { e.preventDefault(); });
@@ -1312,15 +1387,24 @@ body::before {
     el.addEventListener('selectstart', function (e) { e.preventDefault(); });
   });
 
-  /* ================== KHỞI ĐỘNG ================== */
+  /* ============================================================
+     KHỞI ĐỘNG
+     Thứ tự: URL → data.json → default
+  ============================================================ */
   var fromUrl = readFromUrl();
   if (fromUrl) {
     SITE = fromUrl;
     boot();
   } else {
+    // Boot tạm với default để UI không trống
+    SITE = normalize(JSON.parse(JSON.stringify(DEFAULT_DATA)));
     boot();
+    // Thử fetch data.json rồi ghi đè nếu có
     loadDataJson().then(function (d) {
-      if (d) { SITE = d; boot(); }
+      if (d) {
+        SITE = d;
+        boot();
+      }
     });
   }
 })();
