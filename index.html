@@ -1,322 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10131d">
-  <title>QUẢN LÝ WISHLIST</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; min-height: 100vh;
-      background: #10131d; color: #f5f7ff;
-      font-family: system-ui, Arial, sans-serif;
-    }
-    header {
-      padding: 24px 16px; text-align: center;
-      background: #191e2c; border-bottom: 1px solid #30384b;
-    }
-    h1 { margin: 0; font-size: 25px; }
-    header p { color: #aab4c9; margin: 8px 0 0; }
-    main { width: min(900px, 94%); margin: 24px auto; }
-    .panel {
-      padding: 20px; margin-bottom: 18px;
-      background: #191e2c; border: 1px solid #30384b;
-      border-radius: 16px;
-    }
-    h2 { margin-top: 0; font-size: 18px; }
-    label { display: block; margin: 12px 0 6px; color: #c5cde0; }
-    input, button {
-      width: 100%; padding: 12px; border-radius: 9px;
-      font: inherit;
-    }
-    input {
-      color: white; background: #101521;
-      border: 1px solid #414b63; min-width: 0;
-    }
-    button {
-      color: white; background: #635bff;
-      border: 0; cursor: pointer; font-weight: 700;
-    }
-    button:disabled { opacity: .5; cursor: wait; }
-    button.secondary { background: #30394d; }
-    button.danger { background: #b8324b; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .muted { color: #9da8bf; font-size: 13px; }
-    .status { margin-top: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
-    .items {
-      display: grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
-      gap: 12px; margin-top: 16px;
-    }
-    .item {
-      min-width: 0; text-align: center; padding: 12px 8px;
-      border-radius: 12px; background: #101521;
-      border: 1px solid #30384b;
-    }
-    .item img { width: 76px; height: 76px; object-fit: contain; }
-    .item code { display: block; overflow-wrap: anywhere; margin: 8px 0; }
-    .item button { padding: 8px; font-size: 12px; }
-    .hidden { display: none !important; }
-    @media(max-width: 500px) {
-      .grid { grid-template-columns: 1fr; }
-      .panel { padding: 15px; }
-    }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TAB SỰ KIỆN | Trang chủ</title>
+<style>
+@font-face{font-family:GFF;src:url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+*{box-sizing:border-box;margin:0;padding:0}html,body{width:100%;min-height:100%;font-family:GFF,system-ui,sans-serif;color:#fff}body{min-height:100vh;background:#080d19;overflow-x:hidden;padding:clamp(8px,2vw,24px);display:flex;align-items:center;justify-content:center}body:before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(135deg,#050914bb,#070b18e8),url("https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/img/20228/b2b0012af7e3bfcdc90cd8744065e8ab.jpg") center/cover}
+.container{position:relative;width:min(100%,1500px);min-height:min(88vh,900px);display:flex;flex-direction:column;gap:clamp(12px,2.5vmin,28px);padding:clamp(18px,3vw,44px);border:1px solid #ffffff25;border-radius:26px;background:#0a1024a6;backdrop-filter:blur(16px);box-shadow:0 25px 60px #0009;overflow:hidden}
+.menu{position:absolute;left:18px;top:18px;z-index:10}.menu button{padding:9px 12px;background:#ffffff18;color:#fff;border:1px solid #ffffff44;border-radius:8px;cursor:pointer;font:inherit}.menu-panel{display:none;position:absolute;top:44px;left:0;min-width:120px;padding:8px;background:#111a2eee;border:1px solid #ffffff33;border-radius:10px}.menu.open .menu-panel{display:grid;gap:6px}.menu-panel button{width:100%;text-align:left}.header{padding:28px 12px 0;text-align:center}.logo{max-width:min(65%,440px);height:clamp(50px,10vh,125px);object-fit:contain;filter:drop-shadow(0 8px 15px #0009)}.headline{text-align:center;font-size:clamp(18px,3.3vw,36px);letter-spacing:clamp(1px,.6vw,5px);color:#ffe18b;text-shadow:0 3px 16px #f90a;overflow-wrap:anywhere}.description{color:#d9e4f5;text-align:center;font-size:clamp(12px,1.5vw,16px);line-height:1.6}
+.event-nav{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px;margin-top:8px}.event-btn{font:inherit;font-size:clamp(12px,1.5vw,17px);letter-spacing:1px;color:#fff;padding:12px 24px;border:1px solid #ffffff66;background:linear-gradient(135deg,#ffffff35,#ffffff0b);clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);cursor:pointer;transition:.2s}.event-btn.active{background:linear-gradient(120deg,#bd1111,#ff4242,#8c0000);box-shadow:0 0 18px #f4433666}.event-btn:hover{transform:translateY(-2px)}
+.page-switch{display:flex;justify-content:center;gap:8px}.page-switch button{font:inherit;font-size:12px;letter-spacing:2px;padding:9px 16px;border:1px solid #ffffff30;border-radius:8px;background:#ffffff0d;color:#fff;cursor:pointer}.page-switch button.active{background:#ffd166;color:#1b1404}
+.glass{position:relative;border:1px solid #ffd16655;background:linear-gradient(135deg,#ffffff1a,#ffffff05);box-shadow:0 15px 36px #0006,inset 0 0 25px #ffffff08;padding:clamp(12px,2vw,24px);min-height:150px}
+.asset-stage{display:flex;flex:1;min-height:200px;align-items:center;justify-content:center;border-radius:16px;background:#080d19;overflow:hidden;background-size:cover;background-position:center;position:relative}.asset-stage:before{content:"";position:absolute;inset:0;background:#03081777}.asset-stage img{position:relative;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 8px 20px #0009)}
+#page-assets{display:flex;flex-direction:column;gap:14px;flex:1;min-height:0}.tab-wrap{text-align:center}.tab-img{max-width:100%;max-height:130px;object-fit:contain;filter:drop-shadow(0 7px 15px #0008)}.label{font-size:clamp(11px,1.4vw,16px);letter-spacing:3px;color:#ffe28a;margin-bottom:10px;text-align:center}
+#page-banner{display:none;flex:1;min-height:0;overflow:auto}.banner-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.banner-card{position:relative;padding:12px;border:1px solid #ffd16655;background:#ffffff0b;min-width:0}.banner-card img{width:100%;height:auto;max-height:360px;object-fit:contain;background:#0003}.banner-card button{margin-top:8px;background:#171d2a;color:#ffe28a;border:1px solid #ffd16677;border-radius:7px;padding:8px 12px;cursor:pointer;font:inherit}.banner-card.portrait{max-width:420px;justify-self:center}.lightbox{position:fixed;inset:0;z-index:50;background:#000e;display:none;align-items:center;justify-content:center;padding:30px}.lightbox.open{display:flex}.lightbox img{max-width:95vw;max-height:88vh;object-fit:contain}.lightbox button{position:absolute;right:16px;top:16px;padding:10px 14px;background:#211a10;color:#ffe28a;border:1px solid #ffd166;border-radius:8px;font:inherit;cursor:pointer}.footer{text-align:center;color:#ffffff70;font-size:11px;letter-spacing:2px;margin-top:auto}.status{font:12px system-ui,sans-serif;text-align:center;color:#b8c5d9;min-height:16px}
+@media(max-width:650px){.container{padding:15px;min-height:90vh;border-radius:16px}.header{padding-top:35px}.event-btn{padding:10px 15px}.banner-grid{grid-template-columns:1fr}.asset-stage{min-height:180px}.logo{max-width:75%}.headline{letter-spacing:1px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
 </head>
-<body>
-<header>
-  <h1>QUẢN LÝ WISHLIST</h1>
-  <p>QUẢN LÝ &amp; THÊM &amp; XÓA WISHLIST</p>
-</header>
-
-<main>
-  <section id="loginPage" class="panel">
-    <h2>Đăng nhập Wishlist</h2>
-    <p class="muted">Chọn tệp .dat có chứa guest_account_info.</p>
-
-    <label for="datFile">Tệp tài khoản (.dat)</label>
-    <input id="datFile" type="file" accept=".dat,.json,.txt,application/json">
-
-    <label for="uid">Guest UID</label>
-    <input id="uid" autocomplete="off" placeholder="Tự nhận dạng từ tệp">
-
-    <label for="password">Guest Password</label>
-    <input id="password" type="password" autocomplete="off"
-      placeholder="Tự nhận dạng từ tệp">
-
-    <button id="loginBtn" style="margin-top:16px">Tiếp tục</button>
-    <div id="loginStatus" class="status" role="status"></div>
-  </section>
-
-  <section id="wishlistPage" class="hidden">
-    <div class="panel">
-      <h2>Quản lý Wishlist</h2>
-      <p id="accountLabel" class="muted"></p>
-
-      <label for="itemIds">Nhập ID item (mỗi dòng một ID)</label>
-      <input id="itemIds" placeholder="203055024, 203055025">
-
-      <div class="grid" style="margin-top:12px">
-        <button id="addBtn">Thêm</button>
-        <button id="removeBtn" class="danger">Xóa item</button>
-      </div>
-      <button id="refreshBtn" class="secondary" style="margin-top:12px">
-        Tải danh sách
-      </button>
-      <button id="logoutBtn" class="secondary" style="margin-top:8px">
-        Quay lại
-      </button>
-      <div id="apiStatus" class="status" role="status"></div>
-    </div>
-
-    <div class="panel">
-      <h2>Danh sách mong muốn <span id="count">0</span>/100</h2>
-      <p class="muted">Ảnh lỗi sẽ được thay bằng thông báo; ID vẫn được giữ.</p>
-      <div id="items" class="items"></div>
-      <p id="empty" class="muted">Chưa có dữ liệu danh sách.</p>
-    </div>
-  </section>
+<body><main class="container">
+<div class="menu" id="menu"><button id="menuBtn" aria-expanded="false">☰ MENU</button><div class="menu-panel"><button data-page="assets">ASSETS</button><button data-page="banner">BANNER</button></div></div>
+<header class="header"><img class="logo" id="titleImage" src="https://azerst-image-vn.vercel.app/images/8F9d2wz2w.png" alt="TITLE SỰ KIỆN"></header>
+<div class="headline" id="headline">MÀN TRÌNH DIỄN KINH DỊ</div><p class="description" id="description"></p>
+<nav class="event-nav" id="eventNav" aria-label="Danh sách sự kiện"></nav>
+<div class="page-switch"><button class="active" data-page="assets">ASSETS</button><button data-page="banner">BANNER</button></div>
+<section id="page-assets"><div class="tab-wrap glass"><div class="label">TAB SỰ KIỆN</div><img class="tab-img" id="tabImage" src="https://azerst-image-vn.vercel.app/images/wRZwa1Bqv.png" alt="Tab sự kiện"></div><div class="glass" style="display:flex;flex-direction:column;flex:1;min-height:220px"><div class="label">BACKGROUND SỰ KIỆN</div><div class="asset-stage" id="backgroundStage" style="background-image:url('https://azerst-image-vn.vercel.app/images/orGmr7jOS.png')"><img id="backgroundPreview" src="https://azerst-image-vn.vercel.app/images/orGmr7jOS.png" alt="Background sự kiện"></div></div></section>
+<section id="page-banner"><div class="banner-grid" id="bannerGrid"></div></section>
+<div class="status" id="status" role="status" aria-live="polite">Đang tải danh sách sự kiện…</div><footer class="footer">© Azerst 2026 – All rights reserved</footer>
 </main>
-
-<script type="module">
-  import { wishlistRequest } from "./api.js";
-
-  const $ = id => document.getElementById(id);
-  const state = { uid: "", password: "", items: [] };
-
-  function status(id, message) {
-    $(id).textContent = message;
-  }
-
-  function normalizeId(value) {
-    const id = String(value ?? "").trim();
-    return /^\d{1,20}$/.test(id) ? id : null;
-  }
-
-  function parseIds(value) {
-    return [...new Set(
-      value.split(/[\s,;]+/).map(normalizeId).filter(Boolean)
-    )];
-  }
-
-  // Hỗ trợ JSON thuần hoặc JSON nằm trong văn bản của tệp.
-  function extractCredentials(text) {
-    const keyUid = "com.garena.msdk.guest_uid";
-    const keyPassword = "com.garena.msdk.guest_password";
-
-    const candidates = [text];
-    const first = text.indexOf("{");
-    const last = text.lastIndexOf("}");
-
-    if (first >= 0 && last > first) {
-      candidates.push(text.slice(first, last + 1));
-    }
-
-    for (const candidate of candidates) {
-      try {
-        const obj = JSON.parse(candidate);
-        const info = obj?.guest_account_info ?? obj;
-        if (info[keyUid] && info[keyPassword]) {
-          return {
-            uid: String(info[keyUid]),
-            password: String(info[keyPassword])
-          };
-        }
-      } catch {}
-    }
-
-    // Chỉ dùng biểu thức dự phòng nếu tệp chứa JSON không nguyên vẹn.
-    const uidMatch = text.match(
-      /"com\.garena\.msdk\.guest_uid"\s*:\s*"([^"]+)"/
-    );
-    const passwordMatch = text.match(
-      /"com\.garena\.msdk\.guest_password"\s*:\s*"([^"]+)"/
-    );
-
-    if (uidMatch && passwordMatch) {
-      return { uid: uidMatch[1], password: passwordMatch[1] };
-    }
-
-    throw new Error("Không tìm thấy đủ UID và Password trong tệp.");
-  }
-
-  $("datFile").addEventListener("change", async event => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    try {
-      if (file.size > 5 * 1024 * 1024) {
-        throw new Error("Tệp vượt quá giới hạn 5 MB.");
-      }
-      const credentials = extractCredentials(await file.text());
-      $("uid").value = credentials.uid;
-      $("password").value = credentials.password;
-      status("loginStatus", "Đã đọc được thông tin từ tệp.");
-    } catch (error) {
-      status("loginStatus", error.message);
-    }
-  });
-
-  function renderItems() {
-    const container = $("items");
-    container.replaceChildren();
-
-    $("count").textContent = state.items.length;
-    $("empty").classList.toggle("hidden", state.items.length > 0);
-
-    for (const id of state.items) {
-      const card = document.createElement("div");
-      card.className = "item";
-
-      const img = document.createElement("img");
-      img.src = `https://kingofgames02.github.io/Free-Fire-Items-Library/ff-icons/${encodeURIComponent(id)}.png`;
-      img.alt = `Item ${id}`;
-      img.loading = "lazy";
-      img.onerror = () => {
-        img.removeAttribute("src");
-        img.alt = "Không tải được ảnh";
-      };
-
-      const code = document.createElement("code");
-      code.textContent = id;
-
-      const remove = document.createElement("button");
-      remove.className = "danger";
-      remove.textContent = "Xóa ID";
-      remove.addEventListener("click", () => {
-        $("itemIds").value = id;
-      });
-
-      card.append(img, code, remove);
-      container.append(card);
-    }
-  }
-
-  async function runApi(action, ids = []) {
-    status("apiStatus", "Đang xử lý...");
-    $("addBtn").disabled = true;
-    $("removeBtn").disabled = true;
-
-    try {
-      const result = await wishlistRequest({
-        uid: state.uid,
-        password: state.password,
-        action,
-        itemIds: ids
-      });
-
-      // Cần điều chỉnh theo schema thực tế mà API trả về.
-      const list = result?.items ?? result?.wishlist ?? result?.data?.items;
-      if (Array.isArray(list)) {
-        state.items = list
-          .map(item => normalizeId(
-            typeof item === "object" ? item.id ?? item.item_id : item
-          ))
-          .filter(Boolean)
-          .slice(0, 100);
-        renderItems();
-      }
-
-      status("apiStatus", result?.message || "API đã phản hồi thành công.");
-      return result;
-    } catch (error) {
-      status("apiStatus", error.message);
-    } finally {
-      $("addBtn").disabled = false;
-      $("removeBtn").disabled = false;
-    }
-  }
-
-  $("loginBtn").addEventListener("click", () => {
-    const uid = $("uid").value.trim();
-    const password = $("password").value.trim();
-
-    if (!uid || !password) {
-      status("loginStatus", "Vui lòng nhập đủ UID và Password.");
-      return;
-    }
-
-    state.uid = uid;
-    state.password = password;
-    $("accountLabel").textContent = `UID: ${uid}`;
-    $("loginPage").classList.add("hidden");
-    $("wishlistPage").classList.remove("hidden");
-    status("loginStatus", "");
-    runApi("list");
-  });
-
-  $("addBtn").addEventListener("click", () => {
-    const ids = parseIds($("itemIds").value);
-    if (!ids.length) {
-      status("apiStatus", "Nhập ít nhất một ID item hợp lệ.");
-      return;
-    }
-    runApi("add", ids);
-  });
-
-  $("removeBtn").addEventListener("click", () => {
-    const ids = parseIds($("itemIds").value);
-    if (!ids.length) {
-      status("apiStatus", "Nhập ID item cần xóa.");
-      return;
-    }
-    runApi("remove", ids);
-  });
-
-  $("refreshBtn").addEventListener("click", () => runApi("list"));
-
-  $("logoutBtn").addEventListener("click", () => {
-    state.uid = "";
-    state.password = "";
-    $("uid").value = "";
-    $("password").value = "";
-    $("datFile").value = "";
-    $("wishlistPage").classList.add("hidden");
-    $("loginPage").classList.remove("hidden");
-  });
-
-  renderItems();
-</script>
-</body>
-</html>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh"><button id="closeLightbox">ĐÓNG ✕</button><img id="lightboxImg" alt="Ảnh phóng to"></div>
+<script>
+/* Điền Project URL và publishable/anon key của Supabase tại đây. Không dùng service_role/secret key. */
+const SUPABASE_URL="PASTE_SUPABASE_PROJECT_URL_HERE";
+const SUPABASE_ANON_KEY="PASTE_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE";
+const FALLBACK=[
+{name:"Sự kiện 1",title:"MÀN TRÌNH DIỄN KINH DỊ",description:"",title_url:"https://azerst-image-vn.vercel.app/images/8F9d2wz2w.png",tab_url:"https://azerst-image-vn.vercel.app/images/wRZwa1Bqv.png",background_url:"https://azerst-image-vn.vercel.app/images/orGmr7jOS.png"},
+{name:"Sự kiện 2",title:"MÓNG VUỐT TAI HOẠ",description:"",title_url:"https://azerst-image-vn.vercel.app/images/m4jwa7iMn.png",tab_url:"https://azerst-image-vn.vercel.app/images/Xl6yeAKFU.png",background_url:"https://azerst-image-vn.vercel.app/images/QOoBqwG3R.png"},
+{name:"Sự kiện 3",title:"HÀNH ĐỘNG HALLOWEEN",description:"",title_url:"https://azerst-image-vn.vercel.app/images/mw5xbjnMj.png",tab_url:"https://azerst-image-vn.vercel.app/images/GsqjGtxDt.png",background_url:"https://azerst-image-vn.vercel.app/images/rGM5HmhEG.png"}];
+const BANNERS=[
+{label:"16 : 9",url:"https://azerst-image-vn.vercel.app/images/eHDvjfDHK.jpg"},
+{label:"436 × 606",url:"https://azerst-image-vn.vercel.app/images/z1R4FBio5.png",portrait:true},
+{label:"256 × 107",url:"https://azerst-image-vn.vercel.app/images/GQi503B4g.png"},
+{label:"512 × 182",url:"https://azerst-image-vn.vercel.app/images/UlyJpvmBm.png"}];
+let events=[],activeId=null,currentPage="assets",pollHandle=null;
+const $=id=>document.getElementById(id);
+function validUrl(s){try{const u=new URL(s);return u.protocol==="https:"||u.protocol==="http:"}catch{return false}}
+function safeImage(el,url){if(url&&validUrl(url)){el.src=url}else{el.removeAttribute("src")}}
+async function loadEvents(){if(!SUPABASE_URL.startsWith("https://")||SUPABASE_URL.includes("PASTE_")||SUPABASE_ANON_KEY.includes("PASTE_")){events=FALLBACK.map((e,i)=>({...e,id:"demo-"+i}));render();$("status").textContent="Chưa cấu hình Supabase — đang hiển thị dữ liệu mẫu.";return}
+try{const base=SUPABASE_URL.replace(/\/+$/,"");const res=await fetch(base+"/rest/v1/events?select=id,name,title,description,title_url,tab_url,background_url,sort_order&order=sort_order.asc,created_at.asc",{headers:{apikey:SUPABASE_ANON_KEY,Authorization:"Bearer "+SUPABASE_ANON_KEY}});if(!res.ok)throw Error("HTTP "+res.status);const data=await res.json();events=data.length?data:FALLBACK.map((e,i)=>({...e,id:"demo-"+i}));if(!events.some(e=>String(e.id)===String(activeId)))activeId=events.length?String(events[0].id):null;render();$("status").textContent=data.length?"Đã đồng bộ dữ liệu sự kiện.":"Chưa có sự kiện trong Supabase — đang hiển thị dữ liệu mẫu."}catch(e){if(!events.length)events=FALLBACK.map((e,i)=>({...e,id:"demo-"+i}));render();$("status").textContent="Không thể tải Supabase; đang hiển thị dữ liệu mẫu. Kiểm tra URL, key và chính sách RLS."}}
+function render(){const nav=$("eventNav");nav.replaceChildren();events.forEach((ev,i)=>{const b=document.createElement("button");b.type="button";b.className="event-btn"+(String(ev.id)===String(activeId)?" active":"");b.textContent=ev.name||("Sự kiện "+(i+1));b.addEventListener("click",()=>{activeId=String(ev.id);render()});nav.append(b)});const ev=events.find(e=>String(e.id)===String(activeId))||events[0];if(!ev){$("headline").textContent="Chưa có sự kiện";$("description").textContent="";return}activeId=String(ev.id);$("headline").textContent=ev.title||ev.name||"";$("description").textContent=ev.description||"";safeImage($("titleImage"),ev.title_url);safeImage($("tabImage"),ev.tab_url);safeImage($("backgroundPreview"),ev.background_url);$("backgroundStage").style.backgroundImage=ev.background_url&&validUrl(ev.background_url)?`url("${ev.background_url.replace(/["\\]/g,"")}")`:"none";renderBanners(ev)}
+function renderBanners(ev){const grid=$("bannerGrid");grid.replaceChildren();BANNERS.forEach((item,i)=>{const card=document.createElement("div");card.className="banner-card"+(item.portrait?" portrait":"");const label=document.createElement("div");label.className="label";label.textContent=item.label;const img=document.createElement("img");img.alt="Banner "+item.label;img.loading="lazy";safeImage(img,item.url);const button=document.createElement("button");button.type="button";button.textContent="◉ XEM ẢNH";button.addEventListener("click",()=>{if(img.src){$("lightboxImg").src=img.src;$("lightbox").classList.add("open")}});card.append(label,img,button);grid.append(card)})}
+function setPage(page){currentPage=page;$("page-assets").style.display=page==="assets"?"flex":"none";$("page-banner").style.display=page==="banner"?"block":"none";document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("menu").classList.remove("open");$("menuBtn").setAttribute("aria-expanded","false")}
+$("menuBtn").addEventListener("click",()=>{const open=$("menu").classList.toggle("open");$("menuBtn").setAttribute("aria-expanded",String(open))});document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.page)));$("closeLightbox").addEventListener("click",()=>$("lightbox").classList.remove("open"));$("lightbox").addEventListener("click",e=>{if(e.target===$("lightbox"))$("lightbox").classList.remove("open")});document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("lightbox").classList.remove("open");$("menu").classList.remove("open")}});
+loadEvents();if(!pollHandle)pollHandle=setInterval(loadEvents,15000);
+</script></body></html>
